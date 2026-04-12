@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /ghb_lead_dashboard.html
+
+Sitemap: https://www.globalhealthbridge.co.in/sitemap.xml

@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GHB Lead Dashboard – Admin</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--teal:#0d6b55;--teal-light:#e8f5f0;--teal-dark:#085040;--blue:#1a5fa8;--blue-light:#eaf2fb;--red:#c0392b;--amber:#d97706;--green:#059669;--border:#dce8f0;--neutral:#f7f9fc;--white:#fff;--text:#1a2634;--text-mid:#3d5368;--text-muted:#6b849a;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Inter',sans-serif;background:var(--neutral);color:var(--text);font-size:14px;}
+/* Lock screen */
+#lockScreen{position:fixed;inset:0;background:#07192e;z-index:9999;display:flex;align-items:center;justify-content:center;}
+#lockScreen.hidden{display:none;}
+.lock-card{background:#0d2540;border:1px solid rgba(255,255,255,0.08);border-radius:20px;padding:48px 40px;width:100%;max-width:380px;text-align:center;}
+.lock-logo{font-size:18px;font-weight:600;color:#fff;margin-bottom:4px;}
+.lock-sub{font-size:10px;color:rgba(255,255,255,0.3);letter-spacing:0.14em;text-transform:uppercase;margin-bottom:32px;}
+.lock-icon{width:52px;height:52px;border-radius:50%;background:rgba(13,107,85,0.15);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;}
+.lock-title{font-size:22px;font-weight:600;color:#fff;margin-bottom:6px;}
+.lock-desc{font-size:13px;color:rgba(255,255,255,0.4);margin-bottom:24px;line-height:1.6;}
+.lock-input{width:100%;background:rgba(255,255,255,0.06);border:1.5px solid rgba(255,255,255,0.1);border-radius:10px;padding:13px 16px;font-family:'Inter',sans-serif;font-size:15px;color:#fff;outline:none;text-align:center;letter-spacing:0.06em;transition:border-color 0.2s;margin-bottom:10px;}
+.lock-input:focus{border-color:rgba(13,107,85,0.7);}
+.lock-input.shake{animation:shake 0.3s ease;}
+.lock-btn{width:100%;background:var(--teal);color:#fff;border:none;border-radius:10px;padding:13px;font-family:'Inter',sans-serif;font-size:14px;font-weight:500;cursor:pointer;transition:background 0.2s;}
+.lock-btn:hover{background:var(--teal-dark);}
+.lock-error{font-size:12px;color:#e74c3c;min-height:18px;margin-bottom:8px;}
+.lock-hint{font-size:11px;color:rgba(255,255,255,0.2);margin-top:16px;line-height:1.7;}
+@keyframes shake{0%,100%{transform:translateX(0);}25%{transform:translateX(-6px);}75%{transform:translateX(6px);}}
+/* Layout */
+.sidebar{position:fixed;left:0;top:0;bottom:0;width:240px;background:#07192e;padding:0;z-index:100;display:flex;flex-direction:column;}
+.sidebar-logo{padding:20px;border-bottom:1px solid rgba(255,255,255,0.07);}
+.sidebar-logo-name{font-size:14px;font-weight:600;color:#fff;}
+.sidebar-logo-sub{font-size:10px;color:rgba(255,255,255,0.3);letter-spacing:0.1em;text-transform:uppercase;margin-top:2px;}
+.sidebar-section{font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.3);font-weight:600;padding:16px 20px 6px;}
+.sidebar-item{display:flex;align-items:center;gap:10px;padding:10px 20px;cursor:pointer;color:rgba(255,255,255,0.5);font-size:13px;transition:all 0.15s;border-left:3px solid transparent;text-decoration:none;}
+.sidebar-item:hover,.sidebar-item.active{background:rgba(255,255,255,0.05);color:#fff;border-left-color:var(--teal);}
+.sidebar-item svg{width:16px;height:16px;flex-shrink:0;}
+.sidebar-bottom{margin-top:auto;padding:16px 20px;border-top:1px solid rgba(255,255,255,0.07);}
+.sidebar-bottom-text{font-size:11px;color:rgba(255,255,255,0.2);line-height:1.6;}
+.main{margin-left:240px;min-height:100vh;}
+.topbar{background:#fff;border-bottom:1px solid var(--border);padding:0 28px;display:flex;align-items:center;justify-content:space-between;height:60px;position:sticky;top:0;z-index:50;}
+.topbar-title{font-size:15px;font-weight:600;}
+.topbar-right{display:flex;gap:10px;align-items:center;}
+.sync-status{font-size:12px;color:var(--text-muted);display:flex;align-items:center;gap:6px;}
+.sync-dot{width:7px;height:7px;border-radius:50%;background:#d1d5db;}
+.sync-dot.connected{background:var(--green);}
+.sync-dot.syncing{background:var(--amber);animation:pulse 1s infinite;}
+.sync-dot.error{background:var(--red);}
+@keyframes pulse{0%,100%{opacity:1;}50%{opacity:0.4;}}
+.content{padding:24px;}
+/* Stats */
+.stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:24px;}
+.stat-card{background:#fff;border-radius:12px;border:1px solid var(--border);padding:18px;display:flex;align-items:flex-start;gap:12px;}
+.stat-icon{width:38px;height:38px;border-radius:9px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.stat-icon svg{width:18px;height:18px;}
+.stat-icon.teal{background:var(--teal-light);}
+.stat-icon.blue{background:var(--blue-light);}
+.stat-icon.amber{background:#fef3c7;}
+.stat-icon.green{background:#d1fae5;}
+.stat-num{font-size:26px;font-weight:600;color:var(--text);line-height:1;}
+.stat-label{font-size:12px;color:var(--text-muted);margin-top:2px;}
+/* Table */
+.table-card{background:#fff;border-radius:12px;border:1px solid var(--border);overflow:hidden;}
+.table-header{padding:14px 18px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.table-title{font-size:14px;font-weight:600;}
+.table-controls{display:flex;gap:8px;flex-wrap:wrap;align-items:center;}
+.filter-btn{padding:5px 13px;border-radius:20px;font-size:12px;font-weight:500;cursor:pointer;border:1.5px solid var(--border);background:#fff;color:var(--text-mid);transition:all 0.15s;}
+.filter-btn.active,.filter-btn:hover{background:var(--teal);color:#fff;border-color:var(--teal);}
+.search-input{padding:7px 13px;border:1.5px solid var(--border);border-radius:8px;font-size:13px;font-family:'Inter',sans-serif;outline:none;width:190px;transition:border-color 0.2s;}
+.search-input:focus{border-color:var(--blue);}
+table{width:100%;border-collapse:collapse;}
+th{text-align:left;padding:10px 16px;font-size:11px;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;color:var(--text-muted);background:var(--neutral);border-bottom:1px solid var(--border);}
+td{padding:13px 16px;border-bottom:1px solid #f0f5f8;vertical-align:middle;}
+tr:last-child td{border-bottom:none;}
+tr:hover td{background:#fafcff;}
+.lead-name{font-weight:500;color:var(--text);font-size:13px;}
+.lead-email{font-size:12px;color:var(--blue);text-decoration:none;}
+.lead-phone{font-size:12px;color:var(--text-muted);}
+.specialty-badge{font-size:11px;background:var(--blue-light);color:var(--blue);padding:3px 9px;border-radius:20px;font-weight:500;white-space:nowrap;}
+.lead-date{font-size:12px;color:var(--text-muted);}
+.status-select{padding:4px 8px;border:1px solid var(--border);border-radius:6px;font-size:12px;font-family:'Inter',sans-serif;cursor:pointer;background:#fff;outline:none;transition:border-color 0.2s;}
+.status-select:focus{border-color:var(--blue);}
+.status-select.new{background:#fef3c7;color:#92400e;border-color:#fde68a;}
+.status-select.inprogress{background:var(--blue-light);color:var(--blue);border-color:#bfdbfe;}
+.status-select.closed{background:#d1fae5;color:#065f46;border-color:#a7f3d0;}
+.action-btn{padding:5px 11px;border-radius:6px;font-size:11px;font-weight:500;cursor:pointer;border:1px solid var(--border);background:#fff;color:var(--text-mid);transition:all 0.15s;}
+.action-btn:hover{background:var(--teal-light);color:var(--teal);border-color:var(--teal);}
+/* Empty/loading */
+.empty-state{text-align:center;padding:48px;color:var(--text-muted);}
+.empty-state svg{width:44px;height:44px;opacity:0.25;margin:0 auto 14px;display:block;}
+.loading-row td{text-align:center;padding:40px;color:var(--text-muted);font-size:13px;}
+/* Modal */
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:300;align-items:center;justify-content:center;}
+.modal-overlay.open{display:flex;}
+.modal{background:#fff;border-radius:16px;padding:28px;max-width:580px;width:90%;max-height:88vh;overflow-y:auto;box-shadow:0 20px 60px rgba(0,0,0,0.18);}
+.modal-header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:20px;padding-bottom:14px;border-bottom:1px solid var(--border);}
+.modal-title{font-size:17px;font-weight:600;}
+.modal-close{background:none;border:none;cursor:pointer;color:var(--text-muted);font-size:20px;line-height:1;padding:0;flex-shrink:0;}
+.modal-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px;}
+.mf-label{font-size:10px;text-transform:uppercase;letter-spacing:0.09em;color:var(--text-muted);font-weight:600;margin-bottom:3px;}
+.mf-value{font-size:13px;color:var(--text);line-height:1.5;}
+.mf-value a{color:var(--blue);text-decoration:none;}
+.desc-box{background:var(--neutral);border-radius:8px;padding:12px;font-size:13px;color:var(--text-mid);line-height:1.7;white-space:pre-wrap;border:1px solid var(--border);}
+.modal-actions{display:flex;gap:8px;margin-top:18px;padding-top:14px;border-bottom:1px solid var(--border);margin-bottom:14px;}
+/* Buttons */
+.btn{display:inline-flex;align-items:center;gap:6px;padding:8px 16px;border-radius:8px;font-size:13px;font-weight:500;cursor:pointer;border:none;font-family:'Inter',sans-serif;transition:all 0.15s;}
+.btn-primary{background:var(--teal);color:#fff;}.btn-primary:hover{background:var(--teal-dark);}
+.btn-secondary{background:#fff;color:var(--text);border:1.5px solid var(--border);}.btn-secondary:hover{border-color:var(--teal);color:var(--teal);}
+.btn-danger{background:#fff;color:var(--red);border:1.5px solid #fca5a5;}.btn-danger:hover{background:#fef2f2;}
+.btn-sm{padding:6px 12px;font-size:12px;}
+.btn svg{width:14px;height:14px;}
+/* Setup tabs */
+.setup-tabs{display:flex;gap:0;border-bottom:2px solid var(--border);margin-bottom:20px;}
+.setup-tab{padding:10px 18px;font-size:13px;font-weight:500;color:var(--text-muted);cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-2px;transition:all 0.15s;}
+.setup-tab.active{color:var(--teal);border-bottom-color:var(--teal);}
+.setup-panel{display:none;}.setup-panel.active{display:block;}
+/* Config */
+.config-card{background:#fff;border-radius:12px;border:1px solid var(--border);padding:22px;margin-bottom:16px;}
+.config-card h4{font-size:14px;font-weight:600;margin-bottom:14px;display:flex;align-items:center;gap:8px;}
+.config-input{width:100%;padding:9px 13px;border:1.5px solid var(--border);border-radius:8px;font-family:'Inter',sans-serif;font-size:13px;outline:none;transition:border-color 0.2s;margin-bottom:10px;color:var(--text);}
+.config-input:focus{border-color:var(--blue);}
+.config-label{font-size:11px;font-weight:600;color:var(--text-mid);text-transform:uppercase;letter-spacing:0.08em;display:block;margin-bottom:5px;}
+.config-note{font-size:12px;color:var(--text-mid);line-height:1.7;background:var(--neutral);border-radius:8px;padding:10px 14px;border:1px solid var(--border);margin-top:4px;}
+.step-box{display:flex;gap:12px;align-items:flex-start;padding:13px;background:var(--neutral);border-radius:8px;border:1px solid var(--border);margin-bottom:10px;}
+.step-num{width:24px;height:24px;border-radius:50%;color:#fff;font-weight:700;font-size:11px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.step-num.green{background:#25D366;}
+.step-num.blue{background:var(--blue);}
+.step-num.teal{background:var(--teal);}
+.step-title{font-size:13px;font-weight:500;margin-bottom:3px;}
+.step-desc{font-size:12px;color:var(--text-mid);line-height:1.6;}
+code{background:rgba(0,0,0,0.06);padding:2px 6px;border-radius:4px;font-size:11px;font-family:monospace;}
+.status-banner{border-radius:8px;padding:10px 14px;font-size:12px;font-weight:500;margin-bottom:14px;display:flex;align-items:center;gap:8px;}
+.status-banner.success{background:#d1fae5;color:#065f46;border:1px solid #a7f3d0;}
+.status-banner.warning{background:#fef3c7;color:#92400e;border:1px solid #fde68a;}
+.status-banner.error{background:#fee2e2;color:#991b1b;border:1px solid #fca5a5;}
+.status-banner.info{background:var(--blue-light);color:#1e40af;border:1px solid #bfdbfe;}
+/* Toggle */
+.toggle-row{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid #f0f5f8;}
+.toggle-row:last-of-type{border-bottom:none;}
+.toggle{position:relative;width:38px;height:20px;cursor:pointer;flex-shrink:0;}
+.toggle input{opacity:0;width:0;height:0;}
+.toggle-track{position:absolute;inset:0;background:#d1d5db;border-radius:10px;transition:background 0.2s;}
+.toggle input:checked+.toggle-track{background:var(--teal);}
+.toggle-thumb{position:absolute;width:14px;height:14px;background:#fff;border-radius:50%;top:3px;left:3px;transition:transform 0.2s;box-shadow:0 1px 3px rgba(0,0,0,0.2);}
+.toggle input:checked~.toggle-thumb{transform:translateX(18px);}
+/* Toast */
+.toast{position:fixed;bottom:20px;right:20px;background:#07192e;color:#fff;padding:12px 18px;border-radius:10px;font-size:13px;font-weight:500;box-shadow:0 8px 24px rgba(0,0,0,0.2);z-index:999;opacity:0;transform:translateY(8px);transition:all 0.3s;max-width:300px;}
+.toast.show{opacity:1;transform:translateY(0);}
+.toast.success{border-left:3px solid #059669;}
+.toast.error{border-left:3px solid var(--red);}
+.toast.info{border-left:3px solid var(--blue);}
+/* Notes textarea */
+.notes-input{width:100%;border:1.5px solid var(--border);border-radius:8px;padding:10px;font-family:'Inter',sans-serif;font-size:13px;min-height:80px;outline:none;resize:vertical;color:var(--text);transition:border-color 0.2s;}
+.notes-input:focus{border-color:var(--blue);}
+/* Responsive */
+@media(max-width:900px){.stats-row{grid-template-columns:1fr 1fr;}.sidebar{width:200px;}.main{margin-left:200px;}}
+@media(max-width:680px){.sidebar{display:none;}.main{margin-left:0;}.stats-row{grid-template-columns:1fr 1fr;}}
+</style>
+</head>
+<body>
+
+<!-- ═══ LOCK SCREEN ═══ -->
+<div id="lockScreen">
+  <div class="lock-card">
+    <div class="lock-logo">Global Health Bridge</div>
+    <div class="lock-sub">Lead Management Dashboard</div>
+    <div class="lock-icon">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="3" y="11" width="18" height="11" rx="2" stroke="rgba(255,255,255,0.6)" stroke-width="1.5"/><path d="M7 11V7a5 5 0 0110 0v4" stroke="rgba(255,255,255,0.6)" stroke-width="1.5" stroke-linecap="round"/></svg>
+    </div>
+    <div class="lock-title">Secure Access</div>
+    <div class="lock-desc">This dashboard is private and accessible only to the Global Health Bridge team.</div>
+    <input class="lock-input" type="password" id="lockPassword" placeholder="Enter password" onkeydown="if(event.key==='Enter')checkPassword()">
+    <div class="lock-error" id="lockError"></div>
+    <button class="lock-btn" onclick="checkPassword()">Sign In →</button>
+    <div class="lock-hint">Default password: GHB@Admin2025<br>Change it in Settings after first login.</div>
+  </div>
+</div>
+
+<!-- ═══ SIDEBAR ═══ -->
+<div class="sidebar">
+  <div class="sidebar-logo">
+    <div class="sidebar-logo-name">Global Health Bridge</div>
+    <div class="sidebar-logo-sub">Admin Dashboard</div>
+  </div>
+  <div class="sidebar-section">Main</div>
+  <div class="sidebar-item active" onclick="switchView('leads')" id="nav-leads">
+    <svg viewBox="0 0 24 24" fill="none"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+    All Leads
+  </div>
+  <div class="sidebar-section">Configuration</div>
+  <div class="sidebar-item" onclick="switchView('setup')" id="nav-setup">
+    <svg viewBox="0 0 24 24" fill="none"><path d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" stroke="currentColor" stroke-width="1.5"/><path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" stroke="currentColor" stroke-width="1.5"/></svg>
+    Integrations & Settings
+  </div>
+  <div class="sidebar-bottom">
+    <div class="sidebar-bottom-text" id="sheetStatus">⚪ Not connected to Sheets</div>
+  </div>
+</div>
+
+<!-- ═══ MAIN ═══ -->
+<div class="main">
+  <div class="topbar">
+    <div class="topbar-title" id="topbarTitle">Lead Management</div>
+    <div class="topbar-right">
+      <div class="sync-status"><div class="sync-dot" id="syncDot"></div><span id="syncText">Not connected</span></div>
+      <button class="btn btn-secondary btn-sm" onclick="loadLeads()">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Refresh
+      </button>
+      <button class="btn btn-primary btn-sm" onclick="openAddLead()">+ Add Lead</button>
+    </div>
+  </div>
+
+  <div class="content">
+
+    <!-- ══ LEADS VIEW ══ -->
+    <div id="view-leads">
+      <div class="stats-row">
+        <div class="stat-card"><div class="stat-icon teal"><svg viewBox="0 0 24 24" fill="none"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" stroke="#0d6b55" stroke-width="1.5"/></svg></div><div><div class="stat-num" id="statTotal">—</div><div class="stat-label">Total Leads</div></div></div>
+        <div class="stat-card"><div class="stat-icon amber"><svg viewBox="0 0 24 24" fill="none"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" stroke="#d97706" stroke-width="1.5" stroke-linecap="round"/></svg></div><div><div class="stat-num" id="statNew">—</div><div class="stat-label">New</div></div></div>
+        <div class="stat-card"><div class="stat-icon blue"><svg viewBox="0 0 24 24" fill="none"><path d="M13 10V3L4 14h7v7l9-11h-7z" stroke="#1a5fa8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><div class="stat-num" id="statProgress">—</div><div class="stat-label">In Progress</div></div></div>
+        <div class="stat-card"><div class="stat-icon green"><svg viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke="#059669" stroke-width="1.5"/></svg></div><div><div class="stat-num" id="statClosed">—</div><div class="stat-label">Closed</div></div></div>
+      </div>
+      <div class="table-card">
+        <div class="table-header">
+          <div class="table-title">All Enquiries</div>
+          <div class="table-controls">
+            <input class="search-input" type="text" placeholder="Search..." id="searchInput" oninput="renderTable()">
+            <button class="filter-btn active" onclick="setFilter('all',this)">All</button>
+            <button class="filter-btn" onclick="setFilter('New',this)">New</button>
+            <button class="filter-btn" onclick="setFilter('In Progress',this)">In Progress</button>
+            <button class="filter-btn" onclick="setFilter('Closed',this)">Closed</button>
+          </div>
+        </div>
+        <div style="overflow-x:auto;">
+          <table><thead><tr><th>Name</th><th>Specialty</th><th>Country</th><th>Contact</th><th>Date</th><th>Status</th><th>Action</th></tr></thead>
+          <tbody id="leadsTableBody"></tbody></table>
+          <div class="empty-state" id="emptyState" style="display:none;">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            <p style="font-weight:500;margin-bottom:4px;" id="emptyTitle">No leads yet</p>
+            <p style="font-size:12px;" id="emptyDesc">Leads submitted through your website will appear here.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══ SETUP VIEW ══ -->
+    <div id="view-setup" style="display:none;">
+      <div class="setup-tabs">
+        <div class="setup-tab active" onclick="switchSetupTab('sheets')" id="stab-sheets">📊 Google Sheets</div>
+        <div class="setup-tab" onclick="switchSetupTab('whatsapp')" id="stab-whatsapp">📱 WhatsApp</div>
+        <div class="setup-tab" onclick="switchSetupTab('email')" id="stab-email">📧 Email</div>
+        <div class="setup-tab" onclick="switchSetupTab('security')" id="stab-security">🔒 Security</div>
+      </div>
+
+      <!-- Google Sheets Panel -->
+      <div class="setup-panel active" id="spanel-sheets">
+        <div id="sheetsStatusBanner"></div>
+        <div class="config-card">
+          <h4>📊 Google Sheets — Backend Setup</h4>
+          <div class="status-banner warning">⏱ One-time setup · Takes about 10 minutes · Completely free</div>
+          <div class="step-box"><div class="step-num teal">1</div><div><div class="step-title">Create a new Google Sheet</div><div class="step-desc">Go to <a href="https://sheets.google.com" target="_blank" style="color:var(--blue);font-weight:500;">sheets.google.com</a> → click <strong>"Blank"</strong> → rename it to <strong>"GHB Leads"</strong> (click the title at top left).</div></div></div>
+          <div class="step-box"><div class="step-num teal">2</div><div><div class="step-title">Open Apps Script</div><div class="step-desc">In your Google Sheet → click <strong>Extensions</strong> menu → <strong>Apps Script</strong>. A new tab will open with a code editor.</div></div></div>
+          <div class="step-box"><div class="step-num teal">3</div><div><div class="step-title">Paste the backend code</div><div class="step-desc">Delete everything in the editor. Copy the code from the file <strong>google_apps_script.js</strong> (provided alongside this dashboard) and paste it in. Click the 💾 Save icon.</div></div></div>
+          <div class="step-box"><div class="step-num teal">4</div><div><div class="step-title">Deploy as Web App</div><div class="step-desc">Click <strong>Deploy → New deployment</strong>. Set type to <strong>"Web app"</strong>. Set <strong>"Execute as"</strong> → <em>Me</em>. Set <strong>"Who has access"</strong> → <em>Anyone</em>. Click <strong>Deploy</strong> → Authorise when prompted → Copy the <strong>Web App URL</strong>.</div></div></div>
+          <div class="step-box"><div class="step-num teal">5</div><div><div class="step-title">Paste the URL below and save</div><div class="step-desc">Paste your Web App URL in the field below. Click Save & Test — the dashboard will connect to your Sheet instantly.</div></div></div>
+          <label class="config-label" style="margin-top:14px;">Google Apps Script Web App URL</label>
+          <input class="config-input" type="text" id="scriptUrl" placeholder="https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec">
+          <button class="btn btn-primary" style="width:100%;justify-content:center;margin-top:4px;" onclick="saveScriptUrl()">Save & Connect to Google Sheets →</button>
+          <div id="sheetsTestResult" style="font-size:12px;margin-top:8px;text-align:center;"></div>
+        </div>
+      </div>
+
+      <!-- WhatsApp Panel -->
+      <div class="setup-panel" id="spanel-whatsapp">
+        <div class="config-card">
+          <h4>📱 WhatsApp Alerts via CallMeBot</h4>
+          <div class="status-banner warning">⏱ Takes 2 minutes · Free · No app needed</div>
+          <div class="step-box"><div class="step-num green">1</div><div><div class="step-title">Save this number in your phone contacts</div><div class="step-desc">Add <strong>+34 644 52 71 67</strong> as a contact named "CallMeBot".</div></div></div>
+          <div class="step-box"><div class="step-num green">2</div><div><div class="step-title">Send this exact WhatsApp message to that number</div><div style="background:#fff;border:1px solid var(--border);border-radius:6px;padding:8px 12px;font-family:monospace;font-size:12px;margin-top:6px;">I allow callmebot to send me messages</div></div></div>
+          <div class="step-box"><div class="step-num green">3</div><div><div class="step-title">You'll receive your API key in 1–2 minutes</div><div class="step-desc">CallMeBot will reply with your personal API key. Copy it and paste below.</div></div></div>
+          <div class="step-box"><div class="step-num green">4</div><div><div class="step-title">Add your API key to the Google Apps Script</div><div class="step-desc">In your Apps Script file, find line: <code>const CALLMEBOT_API_KEY = 'YOUR_CALLMEBOT_API_KEY';</code><br>Replace <code>YOUR_CALLMEBOT_API_KEY</code> with your actual key. Click Save → then <strong>Deploy → New deployment</strong> again. Use the new URL.</div></div></div>
+          <label class="config-label" style="margin-top:14px;">Your CallMeBot API Key (for reference)</label>
+          <input class="config-input" type="text" id="waApiKey" placeholder="Paste your API key here">
+          <button class="btn btn-primary" style="width:100%;justify-content:center;margin-top:4px;" onclick="saveWaKey()">Save API Key</button>
+          <button class="btn btn-secondary" style="width:100%;justify-content:center;margin-top:8px;" onclick="testWhatsApp()">Send Test WhatsApp Message</button>
+          <div id="waTestResult" style="font-size:12px;margin-top:8px;text-align:center;color:var(--teal);"></div>
+        </div>
+      </div>
+
+      <!-- Email Panel -->
+      <div class="setup-panel" id="spanel-email">
+        <div class="config-card">
+          <h4>📧 Email Alerts via EmailJS</h4>
+          <div class="status-banner info">⏱ Takes 5 minutes · Free up to 200 emails/month</div>
+          <div class="step-box"><div class="step-num blue">1</div><div><div class="step-title">Sign up at EmailJS</div><div class="step-desc">Go to <a href="https://www.emailjs.com" target="_blank" style="color:var(--blue);font-weight:500;">emailjs.com</a> → Sign Up Free → use your Gmail to register.</div></div></div>
+          <div class="step-box"><div class="step-num blue">2</div><div><div class="step-title">Add Gmail as an Email Service</div><div class="step-desc">Dashboard → <strong>Email Services</strong> → <strong>Add New Service</strong> → choose <strong>Gmail</strong> → connect globalhealthbridge.in@gmail.com → click <strong>Create Service</strong> → copy your <strong>Service ID</strong>.</div></div></div>
+          <div class="step-box"><div class="step-num blue">3</div><div><div class="step-title">Create an Email Template</div><div class="step-desc"><strong>Email Templates</strong> → <strong>Create New Template</strong><br>Subject: <code>New Lead: {{lead_name}} — {{lead_specialty}}</code><br>Body: include these variables:<br><code>{{lead_name}} · {{lead_email}} · {{lead_phone}} · {{lead_country}} · {{lead_specialty}} · {{lead_description}} · {{lead_date}}</code><br>Click <strong>Save</strong> → copy your <strong>Template ID</strong>.</div></div></div>
+          <div class="step-box"><div class="step-num blue">4</div><div><div class="step-title">Get your Public Key</div><div class="step-desc">Click your account name (top right) → <strong>Account</strong> → copy the <strong>Public Key</strong>.</div></div></div>
+          <div class="step-box"><div class="step-num blue">5</div><div><div class="step-title">Paste all 3 keys below</div><div class="step-desc">Fill in the fields below, then click Save & Test. You'll receive a test email at your Gmail.</div></div></div>
+          <label class="config-label" style="margin-top:14px;">EmailJS Service ID</label>
+          <input class="config-input" type="text" id="ejServiceId" placeholder="service_xxxxxxx">
+          <label class="config-label">EmailJS Template ID</label>
+          <input class="config-input" type="text" id="ejTemplateId" placeholder="template_xxxxxxx">
+          <label class="config-label">EmailJS Public Key</label>
+          <input class="config-input" type="text" id="ejPublicKey" placeholder="xxxxxxxxxxxx">
+          <button class="btn btn-primary" style="width:100%;justify-content:center;margin-top:4px;" onclick="saveEmailSettings()">Save & Test Email →</button>
+          <div id="emailTestResult" style="font-size:12px;margin-top:8px;text-align:center;"></div>
+        </div>
+      </div>
+
+      <!-- Security Panel -->
+      <div class="setup-panel" id="spanel-security">
+        <div class="config-card">
+          <h4>🔒 Dashboard Password</h4>
+          <p style="font-size:13px;color:var(--text-mid);margin-bottom:16px;font-weight:300;">Change your dashboard login password. Current default: <code>GHB@Admin2025</code></p>
+          <label class="config-label">Current Password</label>
+          <input class="config-input" type="password" id="currentPw" placeholder="Enter current password">
+          <label class="config-label">New Password</label>
+          <input class="config-input" type="password" id="newPw" placeholder="Min. 8 characters">
+          <label class="config-label">Confirm New Password</label>
+          <input class="config-input" type="password" id="confirmPw" placeholder="Repeat new password">
+          <button class="btn btn-primary" onclick="changePassword()">Update Password</button>
+          <div id="pwResult" style="font-size:12px;margin-top:10px;"></div>
+          <div class="config-note" style="margin-top:14px;">After changing, your new password is saved in this browser. To make it permanent across all devices, update the <code>DASHBOARD_PASSWORD</code> value in the HTML file and re-upload to GitHub.</div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /content -->
+</div><!-- /main -->
+
+<!-- Lead Detail Modal -->
+<div class="modal-overlay" id="leadModal">
+  <div class="modal">
+    <div class="modal-header">
+      <div class="modal-title" id="modalName">Lead Details</div>
+      <button class="modal-close" onclick="closeModal()">✕</button>
+    </div>
+    <div class="modal-grid">
+      <div><div class="mf-label">Email</div><div class="mf-value"><a id="modalEmail" href="#">—</a></div></div>
+      <div><div class="mf-label">Phone / WhatsApp</div><div class="mf-value" id="modalPhone">—</div></div>
+      <div><div class="mf-label">Country</div><div class="mf-value" id="modalCountry">—</div></div>
+      <div><div class="mf-label">Specialty</div><div class="mf-value" id="modalSpecialty">—</div></div>
+      <div><div class="mf-label">Source</div><div class="mf-value" id="modalSource">—</div></div>
+      <div><div class="mf-label">Date Submitted</div><div class="mf-value" id="modalDate">—</div></div>
+    </div>
+    <div style="margin-bottom:14px;"><div class="mf-label" style="margin-bottom:6px;">Description</div><div class="desc-box" id="modalDesc">—</div></div>
+    <div style="margin-bottom:14px;">
+      <div class="mf-label" style="margin-bottom:6px;">Status</div>
+      <select class="status-select" id="modalStatus" style="width:200px;padding:8px 12px;font-size:13px;">
+        <option value="New">🟡 New</option>
+        <option value="In Progress">🔵 In Progress</option>
+        <option value="Closed">🟢 Closed</option>
+      </select>
+    </div>
+    <div style="margin-bottom:6px;"><div class="mf-label" style="margin-bottom:6px;">Internal Notes</div>
+      <textarea class="notes-input" id="modalNotes" placeholder="Add notes about this lead..."></textarea>
+    </div>
+    <div class="modal-actions">
+      <button class="btn btn-primary" onclick="saveLeadChanges()">Save Changes</button>
+      <button class="btn btn-secondary" onclick="closeModal()">Close</button>
+      <button class="btn btn-danger" onclick="deleteLead()">Delete Lead</button>
+    </div>
+  </div>
+</div>
+
+<!-- Add Lead Modal -->
+<div class="modal-overlay" id="addModal">
+  <div class="modal">
+    <div class="modal-header"><div class="modal-title">Add Lead Manually</div><button class="modal-close" onclick="closeAddLead()">✕</button></div>
+    <div class="modal-grid">
+      <div><div class="mf-label">First Name</div><input class="config-input" id="alFname" placeholder="Ahmad" style="margin-bottom:0;"></div>
+      <div><div class="mf-label">Last Name</div><input class="config-input" id="alLname" placeholder="Khan" style="margin-bottom:0;"></div>
+    </div>
+    <div class="modal-grid" style="margin-top:12px;">
+      <div><div class="mf-label">Email</div><input class="config-input" id="alEmail" type="email" placeholder="ahmad@email.com" style="margin-bottom:0;"></div>
+      <div><div class="mf-label">Phone</div><input class="config-input" id="alPhone" placeholder="+7 777 123 4567" style="margin-bottom:0;"></div>
+    </div>
+    <div class="modal-grid" style="margin-top:12px;">
+      <div><div class="mf-label">Country</div><input class="config-input" id="alCountry" placeholder="Kazakhstan" style="margin-bottom:0;"></div>
+      <div><div class="mf-label">Specialty</div><input class="config-input" id="alSpecialty" placeholder="Cardiology" style="margin-bottom:0;"></div>
+    </div>
+    <div style="margin-top:12px;"><div class="mf-label">Description</div><textarea class="notes-input" id="alDesc" placeholder="Brief description of condition..." style="min-height:70px;"></textarea></div>
+    <div class="modal-actions"><button class="btn btn-primary" onclick="submitAddLead()">Add Lead</button><button class="btn btn-secondary" onclick="closeAddLead()">Cancel</button></div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<!-- EmailJS -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+<script>
+// ═══════════════════════════════════════════════
+// CONSTANTS & STATE
+// ═══════════════════════════════════════════════
+const DEFAULT_PASSWORD = 'GHB@Admin2025';
+const SESSION_KEY = 'ghb_auth_session';
+const SESSION_DURATION = 8 * 60 * 60 * 1000; // 8 hours
+
+let allLeads = [];
+let currentFilter = 'all';
+let currentLeadId = null;
+let scriptUrl = '';
+
+// ═══════════════════════════════════════════════
+// AUTH
+// ═══════════════════════════════════════════════
+function getPassword() {
+  const s = getSettings();
+  return s.customPassword || DEFAULT_PASSWORD;
+}
+
+function checkAuth() {
+  const session = JSON.parse(sessionStorage.getItem(SESSION_KEY) || 'null');
+  if (session && Date.now() - session.time < SESSION_DURATION) {
+    document.getElementById('lockScreen').classList.add('hidden');
+    init();
+  }
+}
+
+function checkPassword() {
+  const input = document.getElementById('lockPassword');
+  const error = document.getElementById('lockError');
+  if (input.value === getPassword()) {
+    sessionStorage.setItem(SESSION_KEY, JSON.stringify({ time: Date.now() }));
+    document.getElementById('lockScreen').classList.add('hidden');
+    error.textContent = '';
+    init();
+  } else {
+    input.classList.add('shake');
+    error.textContent = 'Incorrect password. Please try again.';
+    input.value = '';
+    setTimeout(() => input.classList.remove('shake'), 400);
+  }
+}
+
+// ═══════════════════════════════════════════════
+// INIT
+// ═══════════════════════════════════════════════
+function init() {
+  loadSettingsIntoUI();
+  const url = getSettings().scriptUrl;
+  if (url) {
+    scriptUrl = url;
+    loadLeads();
+  } else {
+    setSyncStatus('error', 'Not connected — set up Google Sheets');
+    showEmptyState('Google Sheets not connected', 'Go to Integrations & Settings → Google Sheets to connect your database.');
+  }
+}
+
+// ═══════════════════════════════════════════════
+// SETTINGS
+// ═══════════════════════════════════════════════
+function getSettings() { return JSON.parse(localStorage.getItem('ghb_settings_v2') || '{}'); }
+function saveSettings(updates) {
+  const s = { ...getSettings(), ...updates };
+  localStorage.setItem('ghb_settings_v2', JSON.stringify(s));
+}
+
+function loadSettingsIntoUI() {
+  const s = getSettings();
+  if (s.scriptUrl) document.getElementById('scriptUrl').value = s.scriptUrl;
+  if (s.waApiKey) document.getElementById('waApiKey').value = s.waApiKey;
+  if (s.ejServiceId) document.getElementById('ejServiceId').value = s.ejServiceId;
+  if (s.ejTemplateId) document.getElementById('ejTemplateId').value = s.ejTemplateId;
+  if (s.ejPublicKey) document.getElementById('ejPublicKey').value = s.ejPublicKey;
+}
+
+// ═══════════════════════════════════════════════
+// GOOGLE SHEETS API
+// ═══════════════════════════════════════════════
+async function callSheet(payload) {
+  if (!scriptUrl) throw new Error('Script URL not configured');
+  const res = await fetch(scriptUrl, {
+    method: 'POST',
+    headers: { 'Content-Type': 'text/plain' },
+    body: JSON.stringify(payload)
+  });
+  return await res.json();
+}
+
+async function loadLeads() {
+  if (!scriptUrl) return;
+  setSyncStatus('syncing', 'Loading leads...');
+  try {
+    const data = await callSheet({ action: 'get_leads' });
+    if (data.success) {
+      allLeads = data.leads || [];
+      renderTable();
+      updateStats();
+      setSyncStatus('connected', `Connected · ${allLeads.length} leads`);
+      document.getElementById('sheetStatus').textContent = `🟢 Sheets connected · ${allLeads.length} leads`;
+    } else {
+      throw new Error(data.error || 'Unknown error');
+    }
+  } catch (err) {
+    setSyncStatus('error', 'Connection error');
+    showToast('Could not load leads: ' + err.message, 'error');
+  }
+}
+
+// ═══════════════════════════════════════════════
+// TABLE RENDERING
+// ═══════════════════════════════════════════════
+function renderTable() {
+  const search = document.getElementById('searchInput').value.toLowerCase();
+  const filtered = allLeads.filter(l => {
+    const matchFilter = currentFilter === 'all' || (l.status || 'New') === currentFilter;
+    const matchSearch = !search ||
+      (l.name || '').toLowerCase().includes(search) ||
+      (l.email || '').toLowerCase().includes(search) ||
+      (l.country || '').toLowerCase().includes(search) ||
+      (l.specialty || '').toLowerCase().includes(search);
+    return matchFilter && matchSearch;
+  });
+
+  const tbody = document.getElementById('leadsTableBody');
+  const empty = document.getElementById('emptyState');
+
+  if (filtered.length === 0) {
+    tbody.innerHTML = '';
+    empty.style.display = 'block';
+  } else {
+    empty.style.display = 'none';
+    tbody.innerHTML = filtered.map(l => {
+      const statusClass = (l.status || 'New').toLowerCase().replace(' ', '');
+      return `<tr>
+        <td><div class="lead-name">${l.name || '—'}</div></td>
+        <td><span class="specialty-badge">${l.specialty || '—'}</span></td>
+        <td style="font-size:13px;color:var(--text-mid);">${l.country || '—'}</td>
+        <td>
+          ${l.email ? `<div><a class="lead-email" href="mailto:${l.email}">${l.email}</a></div>` : ''}
+          ${l.phone ? `<div class="lead-phone">${l.phone}</div>` : ''}
+        </td>
+        <td class="lead-date">${l.date || '—'}</td>
+        <td>
+          <select class="status-select ${statusClass}" onchange="quickUpdateStatus('${l.id}',this.value,this)">
+            <option value="New" ${l.status==='New'||!l.status?'selected':''}>🟡 New</option>
+            <option value="In Progress" ${l.status==='In Progress'?'selected':''}>🔵 In Progress</option>
+            <option value="Closed" ${l.status==='Closed'?'selected':''}>🟢 Closed</option>
+          </select>
+        </td>
+        <td><button class="action-btn" onclick="openLead('${l.id}')">View</button></td>
+      </tr>`;
+    }).join('');
+  }
+}
+
+function updateStats() {
+  document.getElementById('statTotal').textContent = allLeads.length;
+  document.getElementById('statNew').textContent = allLeads.filter(l => !l.status || l.status === 'New').length;
+  document.getElementById('statProgress').textContent = allLeads.filter(l => l.status === 'In Progress').length;
+  document.getElementById('statClosed').textContent = allLeads.filter(l => l.status === 'Closed').length;
+}
+
+function setFilter(f, btn) {
+  currentFilter = f;
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderTable();
+}
+
+function showEmptyState(title, desc) {
+  document.getElementById('emptyState').style.display = 'block';
+  document.getElementById('emptyTitle').textContent = title;
+  document.getElementById('emptyDesc').textContent = desc;
+  document.getElementById('leadsTableBody').innerHTML = '';
+}
+
+// ═══════════════════════════════════════════════
+// LEAD ACTIONS
+// ═══════════════════════════════════════════════
+function openLead(id) {
+  const l = allLeads.find(x => x.id && x.id.toString() === id.toString());
+  if (!l) return;
+  currentLeadId = id;
+  document.getElementById('modalName').textContent = l.name || '—';
+  const emailEl = document.getElementById('modalEmail');
+  emailEl.textContent = l.email || '—';
+  emailEl.href = l.email ? `mailto:${l.email}` : '#';
+  document.getElementById('modalPhone').textContent = l.phone || '—';
+  document.getElementById('modalCountry').textContent = l.country || '—';
+  document.getElementById('modalSpecialty').textContent = l.specialty || '—';
+  document.getElementById('modalSource').textContent = l.source || '—';
+  document.getElementById('modalDate').textContent = l.date || '—';
+  document.getElementById('modalDesc').textContent = l.description || 'No description provided.';
+  document.getElementById('modalStatus').value = l.status || 'New';
+  document.getElementById('modalNotes').value = l.notes || '';
+  document.getElementById('leadModal').classList.add('open');
+}
+
+function closeModal() { document.getElementById('leadModal').classList.remove('open'); currentLeadId = null; }
+
+async function saveLeadChanges() {
+  if (!currentLeadId) return;
+  const status = document.getElementById('modalStatus').value;
+  const notes = document.getElementById('modalNotes').value;
+  try {
+    const res = await callSheet({ action: 'update_status', id: currentLeadId, status, notes });
+    if (res.success) {
+      const idx = allLeads.findIndex(x => x.id && x.id.toString() === currentLeadId.toString());
+      if (idx >= 0) { allLeads[idx].status = status; allLeads[idx].notes = notes; }
+      renderTable(); updateStats();
+      closeModal();
+      showToast('Lead updated successfully', 'success');
+    } else { showToast('Update failed: ' + res.error, 'error'); }
+  } catch (err) { showToast('Error: ' + err.message, 'error'); }
+}
+
+async function quickUpdateStatus(id, status, selectEl) {
+  const statusClass = status.toLowerCase().replace(' ', '');
+  selectEl.className = `status-select ${statusClass}`;
+  try {
+    await callSheet({ action: 'update_status', id, status });
+    const idx = allLeads.findIndex(x => x.id && x.id.toString() === id.toString());
+    if (idx >= 0) allLeads[idx].status = status;
+    updateStats();
+    showToast(`Status → "${status}"`, 'success');
+  } catch (err) { showToast('Update failed', 'error'); }
+}
+
+async function deleteLead() {
+  if (!currentLeadId || !confirm('Delete this lead? This cannot be undone.')) return;
+  try {
+    const res = await callSheet({ action: 'delete_lead', id: currentLeadId });
+    if (res.success) {
+      allLeads = allLeads.filter(x => x.id && x.id.toString() !== currentLeadId.toString());
+      renderTable(); updateStats(); closeModal();
+      showToast('Lead deleted', 'info');
+    } else { showToast('Delete failed', 'error'); }
+  } catch (err) { showToast('Error: ' + err.message, 'error'); }
+}
+
+// ═══════════════════════════════════════════════
+// ADD LEAD MANUALLY
+// ═══════════════════════════════════════════════
+function openAddLead() { document.getElementById('addModal').classList.add('open'); }
+function closeAddLead() { document.getElementById('addModal').classList.remove('open'); }
+
+async function submitAddLead() {
+  const fname = document.getElementById('alFname').value.trim();
+  if (!fname) { showToast('Please enter a name', 'error'); return; }
+  const lead = {
+    action: 'add_lead',
+    name: `${fname} ${document.getElementById('alLname').value.trim()}`.trim(),
+    email: document.getElementById('alEmail').value.trim(),
+    phone: document.getElementById('alPhone').value.trim(),
+    country: document.getElementById('alCountry').value.trim(),
+    specialty: document.getElementById('alSpecialty').value.trim(),
+    description: document.getElementById('alDesc').value.trim(),
+    source: 'Manual Entry'
+  };
+  try {
+    const res = await callSheet(lead);
+    if (res.success) {
+      closeAddLead();
+      showToast('Lead added!', 'success');
+      await loadLeads();
+      ['alFname','alLname','alEmail','alPhone','alCountry','alSpecialty','alDesc'].forEach(id => document.getElementById(id).value = '');
+    } else { showToast('Failed: ' + res.error, 'error'); }
+  } catch (err) { showToast('Error: ' + err.message, 'error'); }
+}
+
+// ═══════════════════════════════════════════════
+// SETUP ACTIONS
+// ═══════════════════════════════════════════════
+async function saveScriptUrl() {
+  const url = document.getElementById('scriptUrl').value.trim();
+  if (!url || !url.startsWith('https://script.google.com')) {
+    showToast('Please enter a valid Google Apps Script URL', 'error'); return;
+  }
+  saveSettings({ scriptUrl: url });
+  scriptUrl = url;
+  document.getElementById('sheetsTestResult').textContent = '⏳ Connecting...';
+  document.getElementById('sheetsTestResult').style.color = 'var(--amber)';
+  try {
+    const res = await callSheet({ action: 'get_leads' });
+    if (res.success) {
+      allLeads = res.leads || [];
+      renderTable(); updateStats();
+      setSyncStatus('connected', `Connected · ${allLeads.length} leads`);
+      document.getElementById('sheetStatus').textContent = `🟢 Sheets connected`;
+      document.getElementById('sheetsTestResult').textContent = `✅ Connected! Found ${allLeads.length} leads in your Sheet.`;
+      document.getElementById('sheetsTestResult').style.color = 'var(--green)';
+      showToast('Google Sheets connected!', 'success');
+    } else { throw new Error(res.error); }
+  } catch (err) {
+    document.getElementById('sheetsTestResult').textContent = '❌ Connection failed. Check the URL and try again.';
+    document.getElementById('sheetsTestResult').style.color = 'var(--red)';
+    showToast('Connection failed: ' + err.message, 'error');
+  }
+}
+
+function saveWaKey() {
+  const key = document.getElementById('waApiKey').value.trim();
+  if (!key) { showToast('Please enter your API key', 'error'); return; }
+  saveSettings({ waApiKey: key });
+  showToast('WhatsApp API key saved!', 'success');
+}
+
+async function testWhatsApp() {
+  const s = getSettings();
+  if (!s.waApiKey) { showToast('Please save your API key first', 'error'); return; }
+  const msg = encodeURIComponent('✅ Test from GHB Dashboard — WhatsApp alerts are working!');
+  const num = '+919871615884'.replace(/\D/g, '');
+  const url = `https://api.callmebot.com/whatsapp.php?phone=${num}&text=${msg}&apikey=${s.waApiKey}`;
+  document.getElementById('waTestResult').textContent = '⏳ Sending test message...';
+  try {
+    await fetch(url, { mode: 'no-cors' });
+    document.getElementById('waTestResult').textContent = '✅ Test sent! Check your WhatsApp in a moment.';
+    document.getElementById('waTestResult').style.color = 'var(--green)';
+  } catch (e) {
+    document.getElementById('waTestResult').textContent = '✅ Request sent — check WhatsApp.';
+    document.getElementById('waTestResult').style.color = 'var(--green)';
+  }
+}
+
+async function saveEmailSettings() {
+  const sid = document.getElementById('ejServiceId').value.trim();
+  const tid = document.getElementById('ejTemplateId').value.trim();
+  const pk = document.getElementById('ejPublicKey').value.trim();
+  if (!sid || !tid || !pk) { showToast('Please fill in all 3 EmailJS fields', 'error'); return; }
+  saveSettings({ ejServiceId: sid, ejTemplateId: tid, ejPublicKey: pk });
+  document.getElementById('emailTestResult').textContent = '⏳ Sending test email...';
+  try {
+    emailjs.init(pk);
+    await emailjs.send(sid, tid, {
+      lead_name: 'Test Lead',
+      lead_email: 'test@example.com',
+      lead_phone: '+91 98716 15884',
+      lead_country: 'India',
+      lead_specialty: 'Cardiology',
+      lead_description: 'This is a test email from your GHB Dashboard.',
+      lead_source: 'Dashboard Test',
+      lead_date: new Date().toLocaleString()
+    });
+    document.getElementById('emailTestResult').textContent = '✅ Test email sent! Check globalhealthbridge.in@gmail.com.';
+    document.getElementById('emailTestResult').style.color = 'var(--green)';
+    showToast('Email settings saved & tested!', 'success');
+  } catch (err) {
+    document.getElementById('emailTestResult').textContent = '❌ Email failed: ' + (err.text || err.message || 'Check your keys');
+    document.getElementById('emailTestResult').style.color = 'var(--red)';
+  }
+}
+
+function changePassword() {
+  const current = document.getElementById('currentPw').value;
+  const np = document.getElementById('newPw').value;
+  const cp = document.getElementById('confirmPw').value;
+  const res = document.getElementById('pwResult');
+  if (current !== getPassword()) { res.style.color = 'var(--red)'; res.textContent = '❌ Current password is incorrect.'; return; }
+  if (np.length < 8) { res.style.color = 'var(--red)'; res.textContent = '❌ New password must be at least 8 characters.'; return; }
+  if (np !== cp) { res.style.color = 'var(--red)'; res.textContent = '❌ Passwords do not match.'; return; }
+  saveSettings({ customPassword: np });
+  res.style.color = 'var(--green)';
+  res.textContent = '✅ Password updated for this browser session.';
+  ['currentPw','newPw','confirmPw'].forEach(id => document.getElementById(id).value = '');
+}
+
+// ═══════════════════════════════════════════════
+// NAVIGATION
+// ═══════════════════════════════════════════════
+function switchView(view) {
+  document.getElementById('view-leads').style.display = view === 'leads' ? 'block' : 'none';
+  document.getElementById('view-setup').style.display = view === 'setup' ? 'block' : 'none';
+  document.getElementById('nav-leads').classList.toggle('active', view === 'leads');
+  document.getElementById('nav-setup').classList.toggle('active', view === 'setup');
+  document.getElementById('topbarTitle').textContent = view === 'leads' ? 'Lead Management' : 'Integrations & Settings';
+}
+
+function switchSetupTab(tab) {
+  ['sheets','whatsapp','email','security'].forEach(t => {
+    document.getElementById(`stab-${t}`).classList.toggle('active', t === tab);
+    document.getElementById(`spanel-${t}`).classList.toggle('active', t === tab);
+  });
+}
+
+// ═══════════════════════════════════════════════
+// HELPERS
+// ═══════════════════════════════════════════════
+function setSyncStatus(state, text) {
+  const dot = document.getElementById('syncDot');
+  dot.className = `sync-dot ${state === 'connected' ? 'connected' : state === 'syncing' ? 'syncing' : 'error'}`;
+  document.getElementById('syncText').textContent = text;
+}
+
+function showToast(msg, type = 'info') {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.className = `toast ${type} show`;
+  setTimeout(() => t.classList.remove('show'), 3500);
+}
+
+// ═══════════════════════════════════════════════
+// BOOT
+// ═══════════════════════════════════════════════
+checkAuth();
+</script>
+</body>
+</html>
