@@ -28,17 +28,17 @@
 <meta name="twitter:description" content="Across Borders. Besides You. Affordable, world-class medical care in India for international patients.">
 <meta name="twitter:image" content="images/photo-1586773860418-d37222d8fce3.jpg">
 
-<!-- Schema: Medical Business -->
+<!-- Schema: MedicalOrganization + Organization -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "MedicalBusiness",
+  "@type": ["MedicalOrganization", "Organization"],
   "name": "Global Health Bridge",
   "alternateName": "GHB",
   "description": "Global Health Bridge is an international patient facilitation company connecting patients from Central Asia and Africa with JCI and NABH accredited hospitals in India for affordable, world-class medical care.",
   "url": "https://www.globalhealthbridge.co.in",
   "telephone": "+919871615884",
-  "email": "globalhealthbridge.in@gmail.com",
+  "email": "info@globalhealthbridge.co.in",
   "sameAs": [
     "https://www.facebook.com/people/Global-Health-Bridge/61578458949745/",
     "https://x.com/GlobalHealthBrg",
@@ -50,7 +50,24 @@
     "addressLocality": "New Delhi"
   },
   "areaServed": ["Central Asia", "Africa", "Kazakhstan", "Uzbekistan", "Nigeria", "Kenya", "Ethiopia"],
-  "medicalSpecialty": ["Cardiology", "Oncology", "Orthopedics", "Transplantation", "Urology", "Reproductive Medicine"],
+  "medicalSpecialty": ["Cardiology", "Oncology", "Orthopedics", "Transplantation", "Urology", "Reproductive Medicine", "Infertility"],
+  "availableService": [
+    {
+      "@type": "MedicalTherapy",
+      "name": "Essential Care – Medical Coordination",
+      "description": "Case evaluation, hospital & doctor matching, transparent cost estimates, medical visa guidance."
+    },
+    {
+      "@type": "MedicalTherapy",
+      "name": "Enhanced Care – Assisted Care",
+      "description": "Everything in Medical Coordination plus airport reception, ground transport, accommodation coordination, interpreter support, and on-ground case management."
+    },
+    {
+      "@type": "MedicalTherapy",
+      "name": "Complete Care – Comprehensive Care",
+      "description": "Everything in Assisted Care plus rehabilitation coordination, post-return tele-consultations, continuity with local doctors, and full return travel support."
+    }
+  ],
   "priceRange": "$$",
   "hasMap": "https://www.google.com/maps/search/Global+Health+Bridge+New+Delhi"
 }
@@ -67,15 +84,55 @@
       "name": "What is Global Health Bridge and what do you do?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Global Health Bridge is an international patient facilitation company. We connect patients from Central Asia, Africa, and other regions with JCI and NABH-accredited hospitals in India. We manage every aspect of your medical journey — from case evaluation and hospital matching to visa support, travel arrangements, and post-treatment follow-up."
+        "text": "Global Health Bridge is an international patient facilitation company. We connect patients from Central Asia, Africa, and other regions with JCI and NABH-accredited hospitals in India. We manage every aspect of your medical journey — from case evaluation and hospital matching to visa support, travel arrangements, and post-treatment follow-up. We are not a hospital or a medical provider; we are your dedicated patient support partner."
       }
     },
     {
       "@type": "Question",
-      "name": "How much can I save on medical treatment in India compared to Western countries?",
+      "name": "Is your service free for patients?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Treatment costs in India are typically 60–90% lower than comparable treatment in Western countries such as the UK, USA, or Germany. For example, a knee replacement that might cost USD 30,000 in the US can be performed in India for USD 5,000–8,000 at a JCI-accredited hospital."
+        "text": "The initial case evaluation and consultation is completely free. Our service fees depend on the level of support package you choose. We are fully transparent about our charges before you commit to anything. There are no hidden fees — ever."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which countries do you primarily serve?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We primarily serve patients from Central Asian countries (Kazakhstan, Uzbekistan, Turkmenistan, Kyrgyzstan, Tajikistan) and African countries (Nigeria, Kenya, Ethiopia, Tanzania, and others). We welcome patients from all countries — if you are looking for high-quality, affordable medical care in India, we can help."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do you choose which hospital is right for me?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We match patients to hospitals based on several factors: the specific medical condition and treatment required, the hospital's specialist expertise and track record in that area, your budget, your personal preferences, and the availability of the right specialist. We only work with JCI and NABH accredited hospitals, so clinical quality is guaranteed across all our partners."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I get a second opinion before committing to treatment?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Absolutely. In fact, we actively encourage second opinions. Our team coordinates remote second opinion consultations with specialist doctors at our partner hospitals. You can receive a specialist review of your medical reports without traveling to India first. This helps you make an informed decision about whether to proceed with treatment."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much can I expect to save compared to treatment in my country or in the West?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Treatment costs in India are typically 60–90% lower than comparable treatment in Western countries such as the UK, USA, or Germany. For example, a knee replacement that might cost USD 30,000 in the US can be performed in India for USD 5,000–8,000 at a JCI-accredited hospital. We provide you with a full cost estimate before you make any decision."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the quality of medical care in India?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "India's leading hospitals are internationally accredited and staffed by doctors who are often trained in the UK, USA, and Europe. Our partner hospitals — including BLK-Max, Max Saket, and Fortis — appear on international hospital ranking lists. India has near-zero waiting times for elective procedures compared to many countries with public health systems."
       }
     },
     {
@@ -83,23 +140,39 @@
       "name": "Do I need a special visa to travel to India for medical treatment?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes — India offers a specific Medical Visa (MED Visa) for patients traveling for medical treatment. Our team guides you through the entire application process, helps prepare all required documents, and coordinates with the treating hospital for invitation letters and medical documentation."
+        "text": "Yes — India offers a specific Medical Visa (MED Visa) for patients traveling for medical treatment, and an MED-X Visa for accompanying attendants. Our team guides you through the entire application process, helps prepare all required documents, and coordinates with the treating hospital for invitation letters and medical documentation needed for the visa application."
       }
     },
     {
       "@type": "Question",
-      "name": "Which countries do you serve?",
+      "name": "Can a family member accompany me?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "We primarily serve patients from Central Asian countries (Kazakhstan, Uzbekistan, Turkmenistan, Kyrgyzstan, Tajikistan) and African countries (Nigeria, Kenya, Ethiopia, Tanzania, and others). We welcome patients from all countries seeking high-quality, affordable medical care in India."
+        "text": "Yes. Up to two attendants can accompany a patient on a Medical Attendant Visa (MED-X). We coordinate accommodation for patients and their attendants and ensure both are well-supported throughout the stay."
       }
     },
     {
       "@type": "Question",
-      "name": "Is the initial consultation free?",
+      "name": "What happens when I arrive in India?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes, the initial case evaluation and consultation is completely free. Our service fees depend on the level of support package you choose, and we are fully transparent about charges before you commit to anything. There are no hidden fees."
+        "text": "We arrange airport reception and ground transportation directly from the airport to your hospital or accommodation. A dedicated care coordinator greets you and remains your point of contact for the duration of your stay in India. We handle all logistics so you can focus entirely on your treatment and recovery."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What support do you provide after I return home?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Our support does not end at discharge. Under our Comprehensive Care package, we coordinate post-return tele-consultations with your treating specialist, liaise with your local doctors to share discharge summaries and treatment records, and assist with rehabilitation planning. We believe continuity of care is as important as the treatment itself."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I get started?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Getting started is simple and free. You can fill out our contact form on the website, send us a WhatsApp message, or email us directly. Share a brief description of your condition and any relevant medical reports. Our team will review your case and get back to you within 24–48 hours with initial guidance — at no cost."
       }
     }
   ]
@@ -126,6 +199,42 @@
     "https://www.instagram.com/globalhealthbridge.in/"
   ]
 }
+</script>
+<!-- Schema: MedicalProcedure — Cardiology -->
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"MedicalProcedure","name":"Cardiac Surgery in India","description":"Cardiac bypass surgery, valve replacement, and angioplasty at JCI-accredited hospitals in India via Global Health Bridge.","procedureType":"Surgical","status":"EventScheduled","cost":{"@type":"MonetaryAmountDistribution","currency":"USD","minValue":4000,"maxValue":12000},"recognizingAuthority":"Joint Commission International"}
+</script>
+<!-- Schema: MedicalProcedure — Oncology -->
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"MedicalProcedure","name":"Cancer Treatment in India","description":"Comprehensive oncology — chemotherapy, radiation, and surgical oncology at leading cancer hospitals in India.","procedureType":"Therapeutic","cost":{"@type":"MonetaryAmountDistribution","currency":"USD","minValue":3000,"maxValue":15000},"recognizingAuthority":"Joint Commission International"}
+</script>
+<!-- Schema: MedicalProcedure — Orthopaedics -->
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"MedicalProcedure","name":"Orthopaedic Surgery in India","description":"Knee and hip replacement, spinal surgery, and sports medicine at JCI-accredited hospitals in India.","procedureType":"Surgical","cost":{"@type":"MonetaryAmountDistribution","currency":"USD","minValue":4000,"maxValue":9000},"recognizingAuthority":"Joint Commission International"}
+</script>
+<!-- Schema: MedicalProcedure — Organ Transplant -->
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"MedicalProcedure","name":"Organ Transplant in India","description":"Kidney transplant, liver transplant, and bone marrow transplant at accredited transplant centres in India.","procedureType":"Surgical","cost":{"@type":"MonetaryAmountDistribution","currency":"USD","minValue":14000,"maxValue":35000},"recognizingAuthority":"Joint Commission International"}
+</script>
+<!-- Schema: MedicalProcedure — Infertility & IVF -->
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"MedicalProcedure","name":"IVF & Fertility Treatment in India","description":"Advanced IVF, ICSI, egg freezing, and donor programmes at leading fertility clinics in India.","procedureType":"Therapeutic","cost":{"@type":"MonetaryAmountDistribution","currency":"USD","minValue":2500,"maxValue":6000}}
+</script>
+<!-- Schema: MedicalProcedure — Urology -->
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"MedicalProcedure","name":"Urology Surgery in India","description":"Prostate surgery, kidney stone treatment, bladder surgery, and laparoscopic urology at accredited hospitals in India.","procedureType":"Surgical","cost":{"@type":"MonetaryAmountDistribution","currency":"USD","minValue":2000,"maxValue":8000},"recognizingAuthority":"Joint Commission International"}
+</script>
+<!-- Schema: BlogPosting — Cost Comparison -->
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","headline":"How Much Does Treatment in India Cost Compared to the UK, US & Europe?","description":"A detailed cost comparison across common procedures — cardiac bypass, knee replacement, IVF, liver transplant — and why India offers the same quality at a fraction of the price.","url":"https://www.globalhealthbridge.co.in/#blog-post-1","datePublished":"2026-03-28","dateModified":"2026-03-28","author":{"@type":"Organization","name":"Global Health Bridge"},"publisher":{"@type":"Organization","name":"Global Health Bridge","url":"https://www.globalhealthbridge.co.in"}}
+</script>
+<!-- Schema: BlogPosting — Medical Visa Guide -->
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","headline":"How to Get a Medical Visa for India: A Step-by-Step Guide for International Patients","description":"Everything you need to know about India's Medical Visa (MED Visa), the application process, documents required, timelines, and how Global Health Bridge handles it all for you.","url":"https://www.globalhealthbridge.co.in/#blog-post-2","datePublished":"2026-04-03","dateModified":"2026-04-03","author":{"@type":"Organization","name":"Global Health Bridge"},"publisher":{"@type":"Organization","name":"Global Health Bridge","url":"https://www.globalhealthbridge.co.in"}}
+</script>
+<!-- Schema: BlogPosting — Best Hospitals -->
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","headline":"The Best Hospitals in India for International Patients (JCI & NABH Accredited)","description":"A guide to understanding hospital accreditation, what JCI and NABH mean in practice, and a detailed look at the five hospitals in the Global Health Bridge network.","url":"https://www.globalhealthbridge.co.in/#blog-post-3","datePublished":"2026-04-10","dateModified":"2026-04-10","author":{"@type":"Organization","name":"Global Health Bridge"},"publisher":{"@type":"Organization","name":"Global Health Bridge","url":"https://www.globalhealthbridge.co.in"}}
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -336,7 +445,7 @@ nav.scrolled{box-shadow:var(--shadow);}
 
 /* ═══ HERO PAGE BANNER ═══ */
 .page-banner{background:linear-gradient(135deg,#0a2744 0%,#0d4a7a 100%);padding:80px 0 60px;color:#fff;margin-bottom:0;}
-.page-banner h1{color:#fff;margin-bottom:12px;}
+.page-banner h1,.page-banner h2{color:#fff;margin-bottom:12px;}
 .page-banner p{color:rgba(255,255,255,0.7);font-size:17px;font-weight:300;max-width:600px;}
 .breadcrumb{display:flex;align-items:center;gap:8px;margin-bottom:20px;font-size:13px;color:rgba(255,255,255,0.5);}
 .breadcrumb span{color:rgba(255,255,255,0.3);}
@@ -384,9 +493,10 @@ footer{background:#07192e;color:rgba(255,255,255,0.65);padding:64px 0 28px;}
 .footer-bottom{border-top:1px solid rgba(255,255,255,0.07);padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;font-size:12px;color:rgba(255,255,255,0.25);}
 
 /* ═══ FLOATING ELEMENTS ═══ */
-.whatsapp-float{position:fixed;bottom:28px;right:28px;width:54px;height:54px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(37,211,102,0.4);z-index:500;text-decoration:none;transition:transform 0.2s;}
+.whatsapp-float{width:54px;height:54px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(37,211,102,0.4);text-decoration:none;transition:transform 0.2s;position:relative;}
 .whatsapp-float:hover{transform:scale(1.08);}
 .whatsapp-float svg{width:26px;height:26px;}
+.whatsapp-float:hover .wa-tooltip{opacity:1 !important;}
 .sticky-consult{position:fixed;bottom:28px;left:28px;background:var(--teal-dark);color:#fff;border-radius:40px;padding:12px 22px;font-size:13px;font-weight:500;text-decoration:none;box-shadow:0 4px 16px rgba(8,80,64,0.35);display:flex;align-items:center;gap:8px;z-index:500;transition:transform 0.2s;cursor:pointer;border:none;font-family:var(--font-body);}
 .sticky-consult:hover{transform:translateY(-2px);}
 .sticky-consult svg{width:14px;height:14px;}
@@ -417,6 +527,9 @@ footer{background:#07192e;color:rgba(255,255,255,0.65);padding:64px 0 28px;}
   .stat{padding-left:14px;}
   .page-banner{padding:60px 0 40px;}
   .bundle-grid{grid-template-columns:1fr !important;}
+  .testimonials-grid{grid-template-columns:1fr !important;overflow-x:unset;}
+  .blog-post-grid{grid-template-columns:1fr !important;}
+  .blog-sidebar{display:none;}
 }
 @media(max-width:480px){
   .wrap{padding:0 16px;}
@@ -467,6 +580,16 @@ footer{background:#07192e;color:rgba(255,255,255,0.65);padding:64px 0 28px;}
 .text-center{text-align:center;} .text-center .section-desc{margin:12px auto 0;}
 a{color:inherit;}
 </style>
+<!-- Google Analytics 4 — Replace G-XXXXXXXXXX with your Measurement ID and uncomment to activate -->
+<!--
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script>
+-->
 </head>
 <body>
 
@@ -498,6 +621,7 @@ a{color:inherit;}
       <li><a onclick="showPage('hospitals')">Partner Hospitals</a></li>
       <li><a onclick="showPage('about')">About Us</a></li>
       <li><a onclick="showPage('faqs')">FAQs</a></li>
+      <li><button onclick="showPage('blog')">Blog</button></li>
       <li><a onclick="showPage('contact')" class="nav-cta">Free Consultation</a></li>
     </ul>
     <button class="hamburger" onclick="toggleMobile()" aria-label="Menu">
@@ -522,6 +646,7 @@ a{color:inherit;}
   <a onclick="navTo('hospitals')">Partner Hospitals</a>
   <a onclick="navTo('about')">About Us</a>
   <a onclick="navTo('faqs')">FAQs</a>
+  <button onclick="showPage('blog');closeMobile()">Blog</button>
   <a onclick="navTo('contact')" class="mobile-cta">Get Free Consultation</a>
 </div>
 
@@ -738,6 +863,111 @@ a{color:inherit;}
     </div>
   </section>
 
+  <!-- Patient Testimonials -->
+<section style="background:var(--neutral);padding:80px 0;">
+  <div class="wrap">
+    <div class="section-label">Patient Stories</div>
+    <h2>What Our Patients Say</h2>
+    <p class="section-desc">Real stories from patients across Central Asia, Africa, and the Middle East</p>
+    <div class="testimonials-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px;">
+      <!-- Card 1 -->
+      <div class="testimonial-card" style="background:#fff;border-radius:var(--radius-lg);border:1px solid var(--border);padding:28px 24px;">
+        <div style="display:flex;align-items:center;gap:14px;margin-bottom:16px;">
+          <div style="width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#0d6b55,#18a37a);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:16px;font-weight:600;color:#fff;flex-shrink:0;">AK</div>
+          <div>
+            <div style="font-weight:600;font-size:15px;color:var(--text);">Aziz K.</div>
+            <div style="font-size:12px;color:var(--text-muted);">Uzbekistan &middot; Cardiac Bypass Surgery</div>
+          </div>
+        </div>
+        <div style="display:flex;gap:2px;margin-bottom:14px;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p style="font-size:14px;color:var(--text-mid);font-weight:300;line-height:1.8;font-style:italic;">"When my cardiologist told me I needed urgent open-heart surgery, I was desperate — local options in Tashkent were either unavailable or unaffordable. A family friend who had been through Global Health Bridge referred me, and within a week, my coordinator Priya had arranged everything: the visa, BLK-Max Hospital in Delhi, and accommodation for my wife. The surgery was a success, and it cost 80% less than the European quote I had received. Six months on, I am fully recovered and back at work — I owe them my life."</p>
+      </div>
+      <!-- Card 2 -->
+      <div class="testimonial-card" style="background:#fff;border-radius:var(--radius-lg);border:1px solid var(--border);padding:28px 24px;">
+        <div style="display:flex;align-items:center;gap:14px;margin-bottom:16px;">
+          <div style="width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#1a5fa8,#2d7dd2);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:16px;font-weight:600;color:#fff;flex-shrink:0;">AO</div>
+          <div>
+            <div style="font-weight:600;font-size:15px;color:var(--text);">Amina O.</div>
+            <div style="font-size:12px;color:var(--text-muted);">Nigeria &middot; Breast Cancer Treatment</div>
+          </div>
+        </div>
+        <div style="display:flex;gap:2px;margin-bottom:14px;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p style="font-size:14px;color:var(--text-mid);font-weight:300;line-height:1.8;font-style:italic;">"Receiving a cancer diagnosis was the most terrifying moment of my life. I did not know where to turn, but Global Health Bridge matched me with the oncology team at Fortis Hospital within days. The doctors were world-class — they explained every step of my chemotherapy and surgery with such clarity. My coordinator translated everything patiently and was available at any hour. Being so far from home was hard, but the GHB team made me feel like I had family with me every single day."</p>
+      </div>
+      <!-- Card 3 -->
+      <div class="testimonial-card" style="background:#fff;border-radius:var(--radius-lg);border:1px solid var(--border);padding:28px 24px;">
+        <div style="display:flex;align-items:center;gap:14px;margin-bottom:16px;">
+          <div style="width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#7c3aed,#a855f7);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:16px;font-weight:600;color:#fff;flex-shrink:0;">DT</div>
+          <div>
+            <div style="font-weight:600;font-size:15px;color:var(--text);">Dilnoza T.</div>
+            <div style="font-size:12px;color:var(--text-muted);">Kazakhstan &middot; IVF &amp; Fertility Treatment</div>
+          </div>
+        </div>
+        <div style="display:flex;gap:2px;margin-bottom:14px;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p style="font-size:14px;color:var(--text-mid);font-weight:300;line-height:1.8;font-style:italic;">"My husband and I had been trying to have a child for four years. When we finally decided to seek treatment abroad, the sheer number of options felt overwhelming — until we found Global Health Bridge. They matched us with a fertility clinic in Delhi with cutting-edge technology and a dedicated embryologist. Throughout the process, our coordinator kept us informed and calm. I am now expecting our first child. We will be forever grateful to the entire GHB team."</p>
+      </div>
+      <!-- Card 4 -->
+      <div class="testimonial-card" style="background:#fff;border-radius:var(--radius-lg);border:1px solid var(--border);padding:28px 24px;">
+        <div style="display:flex;align-items:center;gap:14px;margin-bottom:16px;">
+          <div style="width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#0d6b55,#0a4a3a);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:16px;font-weight:600;color:#fff;flex-shrink:0;">JM</div>
+          <div>
+            <div style="font-weight:600;font-size:15px;color:var(--text);">James M.</div>
+            <div style="font-size:12px;color:var(--text-muted);">Kenya &middot; Bilateral Knee Replacement</div>
+          </div>
+        </div>
+        <div style="display:flex;gap:2px;margin-bottom:14px;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p style="font-size:14px;color:var(--text-mid);font-weight:300;line-height:1.8;font-style:italic;">"As a retired teacher, I had suffered with severe arthritis in both knees for years. The cost of bilateral knee replacement back home was completely out of reach. Global Health Bridge arranged my entire journey to Max Hospital Saket — flights, accommodation, hospital admission, and the post-operative care plan. I am now walking without pain for the first time in nearly a decade. The tele-consultation follow-ups they arranged after I returned to Nairobi were especially reassuring."</p>
+      </div>
+      <!-- Card 5 -->
+      <div class="testimonial-card" style="background:#fff;border-radius:var(--radius-lg);border:1px solid var(--border);padding:28px 24px;">
+        <div style="display:flex;align-items:center;gap:14px;margin-bottom:16px;">
+          <div style="width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#b45309,#d97706);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:16px;font-weight:600;color:#fff;flex-shrink:0;">FR</div>
+          <div>
+            <div style="font-weight:600;font-size:15px;color:var(--text);">Fatima Al-R.</div>
+            <div style="font-size:12px;color:var(--text-muted);">Iraq &middot; Liver Transplant Coordination</div>
+          </div>
+        </div>
+        <div style="display:flex;gap:2px;margin-bottom:14px;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p style="font-size:14px;color:var(--text-mid);font-weight:300;line-height:1.8;font-style:italic;">"When our father was told he needed a liver transplant, our family was in a desperate state. Global Health Bridge coordinated directly with the transplant team at BLK-Max Hospital, handled all the visa paperwork for four family members, and arranged a dedicated Arabic-speaking interpreter throughout our stay. It was an incredibly complex journey, but the GHB team never once made us feel alone. They were with us at every turn — and today, our father is home and recovering well."</p>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:40px;">
+      <button class="btn btn-secondary" onclick="showPage('blog')">Read More Stories</button>
+    </div>
+  </div>
+</section>
+<!-- End Patient Testimonials -->
+
   <!-- Service Bundles -->
   <section style="background:#fff;">
     <div class="wrap">
@@ -806,7 +1036,7 @@ a{color:inherit;}
   <div class="page-banner">
     <div class="wrap">
       <div class="breadcrumb"><a onclick="showPage('home')">Home</a><span>/</span>Medical Specialties</div>
-      <h1>Medical <em style="color:#a0e8d0;">Specialties</em></h1>
+      <h2>Medical <em style="color:#a0e8d0;">Specialties</em></h2>
       <p>Our partner hospitals in India cover a comprehensive range of complex medical specialties — with internationally trained specialists and world-class infrastructure.</p>
     </div>
   </div>
@@ -851,7 +1081,7 @@ a{color:inherit;}
   <div class="page-banner">
     <div class="wrap">
       <div class="breadcrumb"><a onclick="showPage('home')">Home</a><span>/</span><a onclick="showPage('specialties')">Specialties</a><span>/</span><span id="spec-breadcrumb">Cardiology</span></div>
-      <h1 id="spec-title">Cardiology</h1>
+      <h2 id="spec-title">Cardiology</h2>
       <p id="spec-subtitle">Advanced cardiac care in India's finest hospitals</p>
     </div>
   </div>
@@ -865,6 +1095,7 @@ a{color:inherit;}
           <div id="spec-process"></div>
           <h3 style="margin:32px 0 16px;">Frequently Asked Questions</h3>
           <div id="spec-faqs"></div>
+          <div id="spec-cost-table"></div>
         </div>
         <div>
           <div class="spec-sidebar">
@@ -906,7 +1137,7 @@ a{color:inherit;}
     </div>
     <div class="wrap" style="position:relative;z-index:1;">
       <div class="breadcrumb"><a onclick="showPage('home')">Home</a><span>/</span>Patient Journey</div>
-      <h1>Your <em style="color:#a0e8d0;">Patient Journey</em></h1>
+      <h2>Your <em style="color:#a0e8d0;">Patient Journey</em></h2>
       <p>A clear, structured process designed to make your medical travel safe, simple, and stress-free — from first contact to full recovery.</p>
     </div>
   </div>
@@ -981,7 +1212,7 @@ a{color:inherit;}
   <div class="page-banner">
     <div class="wrap">
       <div class="breadcrumb"><a onclick="showPage('home')">Home</a><span>/</span>Partner Hospitals</div>
-      <h1>Partner <em style="color:#a0e8d0;">Hospitals</em></h1>
+      <h2>Partner <em style="color:#a0e8d0;">Hospitals</em></h2>
       <p>We work exclusively with JCI and NABH accredited hospitals in India — ensuring internationally benchmarked care for every patient.</p>
     </div>
   </div>
@@ -1019,7 +1250,7 @@ a{color:inherit;}
   <div class="page-banner">
     <div class="wrap">
       <div class="breadcrumb"><a onclick="showPage('home')">Home</a><span>/</span>About Us</div>
-      <h1>About <em style="color:#a0e8d0;">Global Health Bridge</em></h1>
+      <h2>About <em style="color:#a0e8d0;">Global Health Bridge</em></h2>
       <p>A structured, ethical, and transparent international patient support platform — connecting patients with world-class healthcare in India.</p>
     </div>
   </div>
@@ -1036,6 +1267,7 @@ a{color:inherit;}
             <div class="section-label">Our Mission</div>
             <h3 style="margin:8px 0 12px;font-style:italic;">"To ensure every patient has access to safe, timely, and well-coordinated treatment — regardless of where they live."</h3>
             <p style="font-size:14px;color:var(--text-mid);font-weight:300;line-height:1.7;">We work collaboratively with governments, healthcare institutions, NGOs, and ecosystem partners who share a common objective of improving patient access to quality care.</p>
+            <p style="font-size:13px;color:var(--text-muted);margin-top:8px;">Registered in India &middot; Operating across Central Asia &amp; Africa</p>
           </div>
         </div>
         <div>
@@ -1081,7 +1313,7 @@ a{color:inherit;}
   <div class="page-banner">
     <div class="wrap">
       <div class="breadcrumb"><a onclick="showPage('home')">Home</a><span>/</span>FAQs</div>
-      <h1>Frequently Asked <em style="color:#a0e8d0;">Questions</em></h1>
+      <h2>Frequently Asked <em style="color:#a0e8d0;">Questions</em></h2>
       <p>Everything you need to know about medical travel to India and how Global Health Bridge supports you.</p>
     </div>
   </div>
@@ -1116,13 +1348,379 @@ a{color:inherit;}
   </section>
 </div>
 
+<!-- ═══════════════════ BLOG INDEX PAGE ═══════════════════ -->
+<div id="page-blog" class="page">
+  <div class="page-banner">
+    <div class="wrap">
+      <div class="breadcrumb"><a onclick="showPage('home')">Home</a><span>/</span>Blog</div>
+      <h2>Medical Travel <em style="color:#a0e8d0;">Insights</em></h2>
+      <p>Guides, tips, and insights for international patients considering treatment in India</p>
+    </div>
+  </div>
+  <section style="background:#fff;">
+    <div class="wrap">
+      <div class="grid-3">
+        <div class="blog-card" onclick="showPage('blog-post-1')">
+          <div class="blog-card-top"><span class="blog-cat">Cost &amp; Planning</span></div>
+          <div class="blog-card-body">
+            <h4>How Much Does Treatment in India Cost Compared to the UK, US &amp; Europe?</h4>
+            <p>A detailed cost comparison across common procedures — cardiac bypass, knee replacement, IVF, liver transplant — and why India offers the same quality at a fraction of the price.</p>
+            <div class="blog-meta"><span>March 28, 2026</span><span>&middot;</span><span>6 min read</span></div>
+            <div style="margin-top:14px;"><span style="font-size:13px;color:var(--teal);font-weight:500;">Read Article &rarr;</span></div>
+          </div>
+        </div>
+        <div class="blog-card" onclick="showPage('blog-post-2')">
+          <div class="blog-card-top"><span class="blog-cat">Visa &amp; Travel</span></div>
+          <div class="blog-card-body">
+            <h4>How to Get a Medical Visa for India: A Step-by-Step Guide for International Patients</h4>
+            <p>Everything you need to know about India's Medical Visa (MED Visa), the application process, documents required, timelines, and how Global Health Bridge handles it all for you.</p>
+            <div class="blog-meta"><span>April 3, 2026</span><span>&middot;</span><span>5 min read</span></div>
+            <div style="margin-top:14px;"><span style="font-size:13px;color:var(--teal);font-weight:500;">Read Article &rarr;</span></div>
+          </div>
+        </div>
+        <div class="blog-card" onclick="showPage('blog-post-3')">
+          <div class="blog-card-top"><span class="blog-cat">Hospitals &amp; Quality</span></div>
+          <div class="blog-card-body">
+            <h4>The Best Hospitals in India for International Patients (JCI &amp; NABH Accredited)</h4>
+            <p>A guide to understanding hospital accreditation, what JCI and NABH mean in practice, and a detailed look at the five hospitals in the Global Health Bridge network.</p>
+            <div class="blog-meta"><span>April 10, 2026</span><span>&middot;</span><span>7 min read</span></div>
+            <div style="margin-top:14px;"><span style="font-size:13px;color:var(--teal);font-weight:500;">Read Article &rarr;</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ═══════════════════ BLOG POST 1 ═══════════════════ -->
+<div id="page-blog-post-1" class="page">
+  <div class="page-banner">
+    <div class="wrap">
+      <div class="breadcrumb"><a onclick="showPage('home')">Home</a><span>/</span><a onclick="showPage('blog')">Blog</a><span>/</span>Cost Comparison</div>
+      <span style="display:inline-block;font-size:11px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#a0e8d0;background:rgba(160,232,208,0.15);padding:4px 12px;border-radius:20px;margin-bottom:16px;">Cost &amp; Planning</span>
+      <h2>How Much Does Treatment in India Cost Compared to the UK, US &amp; Europe?</h2>
+      <p style="margin-top:12px;font-size:13px;color:rgba(255,255,255,0.5);">March 28, 2026 &middot; 6 min read</p>
+    </div>
+  </div>
+  <section style="background:#fff;">
+    <div class="wrap">
+      <div style="display:grid;grid-template-columns:1fr 280px;gap:48px;align-items:start;" class="blog-post-grid">
+        <article style="max-width:720px;">
+          <p style="font-size:17px;color:var(--text-mid);line-height:1.9;font-weight:300;margin-bottom:32px;">For the vast majority of international patients who travel to India for medical care, the single most compelling reason is cost. Treatment in India at a JCI-accredited hospital can cost 60–90% less than equivalent care in the United Kingdom, United States, or Western Europe — without any meaningful sacrifice in quality, technology, or clinical outcomes. Understanding exactly how these savings break down, and what additional expenses to budget for, is essential to planning your medical journey.</p>
+          <h2 style="font-size:26px;margin-bottom:16px;margin-top:40px;">Procedure Cost Comparison: India vs. UK, USA &amp; UAE</h2>
+          <p style="color:var(--text-mid);font-weight:300;line-height:1.8;margin-bottom:20px;">The table below uses representative mid-range figures from published hospital rates and industry sources. Actual costs vary by hospital, complexity, and individual patient needs — Global Health Bridge provides a personalised cost estimate before you commit to anything.</p>
+          <div style="overflow-x:auto;margin-bottom:32px;">
+            <table style="width:100%;border-collapse:collapse;font-size:14px;">
+              <thead>
+                <tr style="background:var(--teal);color:#fff;">
+                  <th style="padding:12px 16px;text-align:left;border-radius:8px 0 0 0;">Procedure</th>
+                  <th style="padding:12px 16px;text-align:center;">India (USD)</th>
+                  <th style="padding:12px 16px;text-align:center;">UK (USD)</th>
+                  <th style="padding:12px 16px;text-align:center;">USA (USD)</th>
+                  <th style="padding:12px 16px;text-align:center;border-radius:0 8px 0 0;">UAE (USD)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="background:#f7f9fc;">
+                  <td style="padding:12px 16px;font-weight:500;border-bottom:1px solid var(--border);">Cardiac Bypass Surgery</td>
+                  <td style="padding:12px 16px;text-align:center;color:var(--teal);font-weight:600;border-bottom:1px solid var(--border);">$5,000–12,000</td>
+                  <td style="padding:12px 16px;text-align:center;border-bottom:1px solid var(--border);">$25,000–40,000</td>
+                  <td style="padding:12px 16px;text-align:center;border-bottom:1px solid var(--border);">$70,000–150,000</td>
+                  <td style="padding:12px 16px;text-align:center;border-bottom:1px solid var(--border);">$20,000–35,000</td>
+                </tr>
+                <tr>
+                  <td style="padding:12px 16px;font-weight:500;border-bottom:1px solid var(--border);">Knee Replacement (per knee)</td>
+                  <td style="padding:12px 16px;text-align:center;color:var(--teal);font-weight:600;border-bottom:1px solid var(--border);">$4,000–8,000</td>
+                  <td style="padding:12px 16px;text-align:center;border-bottom:1px solid var(--border);">$15,000–25,000</td>
+                  <td style="padding:12px 16px;text-align:center;border-bottom:1px solid var(--border);">$30,000–50,000</td>
+                  <td style="padding:12px 16px;text-align:center;border-bottom:1px solid var(--border);">$12,000–22,000</td>
+                </tr>
+                <tr style="background:#f7f9fc;">
+                  <td style="padding:12px 16px;font-weight:500;border-bottom:1px solid var(--border);">IVF (single cycle)</td>
+                  <td style="padding:12px 16px;text-align:center;color:var(--teal);font-weight:600;border-bottom:1px solid var(--border);">$2,500–5,000</td>
+                  <td style="padding:12px 16px;text-align:center;border-bottom:1px solid var(--border);">$8,000–15,000</td>
+                  <td style="padding:12px 16px;text-align:center;border-bottom:1px solid var(--border);">$12,000–25,000</td>
+                  <td style="padding:12px 16px;text-align:center;border-bottom:1px solid var(--border);">$7,000–14,000</td>
+                </tr>
+                <tr>
+                  <td style="padding:12px 16px;font-weight:500;border-bottom:1px solid var(--border);">Liver Transplant</td>
+                  <td style="padding:12px 16px;text-align:center;color:var(--teal);font-weight:600;border-bottom:1px solid var(--border);">$25,000–40,000</td>
+                  <td style="padding:12px 16px;text-align:center;border-bottom:1px solid var(--border);">$130,000–200,000</td>
+                  <td style="padding:12px 16px;text-align:center;border-bottom:1px solid var(--border);">$300,000–500,000</td>
+                  <td style="padding:12px 16px;text-align:center;border-bottom:1px solid var(--border);">$80,000–130,000</td>
+                </tr>
+                <tr style="background:#f7f9fc;">
+                  <td style="padding:12px 16px;font-weight:500;">Cancer Chemotherapy (per cycle)</td>
+                  <td style="padding:12px 16px;text-align:center;color:var(--teal);font-weight:600;">$700–2,500</td>
+                  <td style="padding:12px 16px;text-align:center;">$5,000–12,000</td>
+                  <td style="padding:12px 16px;text-align:center;">$8,000–30,000</td>
+                  <td style="padding:12px 16px;text-align:center;">$4,000–10,000</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <h2 style="font-size:26px;margin-bottom:16px;margin-top:40px;">Why Is Treatment in India So Much Cheaper?</h2>
+          <p style="color:var(--text-mid);font-weight:300;line-height:1.8;margin-bottom:16px;">The cost differential is not a sign of inferior care. It is the result of structural economic factors that make high-quality healthcare inherently more affordable in India:</p>
+          <p style="color:var(--text-mid);font-weight:300;line-height:1.8;margin-bottom:16px;"><strong style="color:var(--text);">Lower operational overheads.</strong> Real estate, nursing staff, administrative costs, and equipment maintenance are a fraction of what they cost in the UK or US — even at hospitals that meet the same JCI accreditation standards as the world's best.</p>
+          <p style="color:var(--text-mid);font-weight:300;line-height:1.8;margin-bottom:16px;"><strong style="color:var(--text);">Purchasing power parity.</strong> India's lower cost of living means that highly trained doctors, nurses, and specialists are compensated at internationally competitive rates that are still far below Western salary scales — without any compromise in their qualifications or experience.</p>
+          <p style="color:var(--text-mid);font-weight:300;line-height:1.8;margin-bottom:16px;"><strong style="color:var(--text);">No litigation-driven pricing.</strong> In the United States especially, medical costs are heavily inflated by malpractice insurance premiums and defensive medicine practices. India's legal and insurance framework does not impose the same cost burden on healthcare providers.</p>
+          <p style="color:var(--text-mid);font-weight:300;line-height:1.8;margin-bottom:32px;"><strong style="color:var(--text);">Government policy support.</strong> India has actively promoted medical tourism as a strategic sector, with supportive visa policies, hospital accreditation frameworks, and infrastructure investment that make the ecosystem highly efficient.</p>
+          <h2 style="font-size:26px;margin-bottom:16px;margin-top:40px;">Hidden Costs to Factor In</h2>
+          <p style="color:var(--text-mid);font-weight:300;line-height:1.8;margin-bottom:16px;">Even with India's lower treatment costs, a complete budget for your medical journey should account for the following:</p>
+          <ul style="color:var(--text-mid);font-weight:300;line-height:1.8;margin-bottom:32px;padding-left:20px;">
+            <li style="margin-bottom:8px;"><strong style="color:var(--text);">Flights:</strong> Return flights from Central Asia typically cost USD 300–700; from West Africa, USD 600–1,200. Book early and through your coordinator for best rates.</li>
+            <li style="margin-bottom:8px;"><strong style="color:var(--text);">Accommodation:</strong> Budget USD 30–80/night for a quality serviced apartment near the hospital. For longer stays (transplants, chemotherapy cycles), GHB negotiates extended stay rates.</li>
+            <li style="margin-bottom:8px;"><strong style="color:var(--text);">Companion visa &amp; travel:</strong> India allows up to 2 medical attendants on a MED-X visa. Factor in their flights and accommodation.</li>
+            <li style="margin-bottom:8px;"><strong style="color:var(--text);">Post-treatment medication:</strong> Prescription drugs in India are significantly cheaper than at home — typically 60–80% less — so stock up before you return.</li>
+            <li style="margin-bottom:8px;"><strong style="color:var(--text);">Follow-up telemedicine:</strong> GHB arranges remote consultations with your treating physician after you return home, included in most packages.</li>
+          </ul>
+          <h2 style="font-size:26px;margin-bottom:16px;margin-top:40px;">Full Cost Transparency with Global Health Bridge</h2>
+          <p style="color:var(--text-mid);font-weight:300;line-height:1.8;margin-bottom:16px;">One of the most common fears for international patients is receiving a bill that is far higher than the original quote. Global Health Bridge works only with hospitals that provide fixed treatment estimates upfront, covering surgeon fees, anaesthesia, theatre costs, ward charges, and standard post-operative care.</p>
+          <p style="color:var(--text-mid);font-weight:300;line-height:1.8;margin-bottom:32px;">Before you book a single flight, we provide you with a complete cost breakdown — treatment, accommodation, logistics, and our service fee — so there are no surprises. If costs change due to medical complications, we notify you immediately and explain every line item.</p>
+          <div style="background:linear-gradient(135deg,#085040,#0d6b55);border-radius:var(--radius-lg);padding:32px;margin-top:40px;margin-bottom:40px;">
+            <h3 style="color:#fff;margin-bottom:10px;">Ready to find out what your treatment would cost in India?</h3>
+            <p style="color:rgba(255,255,255,0.75);font-weight:300;margin-bottom:20px;font-size:15px;">Get a free, no-obligation cost estimate tailored to your specific condition and treatment requirements.</p>
+            <button class="btn btn-outline-white" onclick="showPage('contact')">Get a free cost estimate &rarr;</button>
+          </div>
+          <h3 style="margin-bottom:20px;margin-top:8px;">Related Articles</h3>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+            <div class="blog-card" onclick="showPage('blog-post-2')" style="cursor:pointer;">
+              <div class="blog-card-top" style="min-height:80px;"><span class="blog-cat">Visa &amp; Travel</span></div>
+              <div class="blog-card-body"><h4 style="font-size:15px;">How to Get a Medical Visa for India</h4><div class="blog-meta">April 3, 2026 &middot; 5 min</div></div>
+            </div>
+            <div class="blog-card" onclick="showPage('blog-post-3')" style="cursor:pointer;">
+              <div class="blog-card-top" style="min-height:80px;"><span class="blog-cat">Hospitals &amp; Quality</span></div>
+              <div class="blog-card-body"><h4 style="font-size:15px;">Best Hospitals in India for International Patients</h4><div class="blog-meta">April 10, 2026 &middot; 7 min</div></div>
+            </div>
+          </div>
+        </article>
+        <aside class="blog-sidebar" style="position:sticky;top:88px;background:var(--neutral);border-radius:var(--radius-lg);padding:24px;border:1px solid var(--border);">
+          <div style="font-size:11px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-muted);margin-bottom:14px;">Contents</div>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:10px;">
+            <li><a href="#" style="font-size:13px;color:var(--text-mid);text-decoration:none;font-weight:300;line-height:1.5;">Cost Comparison Table</a></li>
+            <li><a href="#" style="font-size:13px;color:var(--text-mid);text-decoration:none;font-weight:300;line-height:1.5;">Why India Is Cheaper</a></li>
+            <li><a href="#" style="font-size:13px;color:var(--text-mid);text-decoration:none;font-weight:300;line-height:1.5;">Hidden Costs to Budget For</a></li>
+            <li><a href="#" style="font-size:13px;color:var(--text-mid);text-decoration:none;font-weight:300;line-height:1.5;">Cost Transparency with GHB</a></li>
+          </ul>
+          <div style="margin-top:24px;padding-top:20px;border-top:1px solid var(--border);">
+            <p style="font-size:13px;color:var(--text-mid);margin-bottom:14px;font-weight:300;">Get a personalised cost estimate for your treatment.</p>
+            <button class="btn btn-primary" style="width:100%;justify-content:center;font-size:13px;" onclick="showPage('contact')">Free Consultation</button>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ═══════════════════ BLOG POST 2 ═══════════════════ -->
+<div id="page-blog-post-2" class="page">
+  <div class="page-banner">
+    <div class="wrap">
+      <div class="breadcrumb"><a onclick="showPage('home')">Home</a><span>/</span><a onclick="showPage('blog')">Blog</a><span>/</span>Medical Visa Guide</div>
+      <span style="display:inline-block;font-size:11px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#a0e8d0;background:rgba(160,232,208,0.15);padding:4px 12px;border-radius:20px;margin-bottom:16px;">Visa &amp; Travel</span>
+      <h2>How to Get a Medical Visa for India: A Step-by-Step Guide for International Patients</h2>
+      <p style="margin-top:12px;font-size:13px;color:rgba(255,255,255,0.5);">April 3, 2026 &middot; 5 min read</p>
+    </div>
+  </div>
+  <section style="background:#fff;">
+    <div class="wrap">
+      <div style="display:grid;grid-template-columns:1fr 280px;gap:48px;align-items:start;" class="blog-post-grid">
+        <article style="max-width:720px;">
+          <p style="font-size:17px;color:var(--text-mid);line-height:1.9;font-weight:300;margin-bottom:32px;">India offers a dedicated Medical Visa — known as the MED Visa — specifically designed for international patients travelling to receive medical treatment at recognised hospitals. Unlike a standard tourist visa, the MED Visa is valid for up to one year, allows multiple entries, and can be extended within India if your treatment requires a longer stay. Understanding the process, and having the right documents prepared, makes the difference between a smooth application and weeks of delays.</p>
+          <h2 style="font-size:26px;margin-bottom:16px;margin-top:40px;">Who Qualifies for an Indian Medical Visa?</h2>
+          <p style="color:var(--text-mid);font-weight:300;line-height:1.8;margin-bottom:16px;">You are eligible for an Indian Medical Visa if you are travelling to India for:</p>
+          <ul style="color:var(--text-mid);font-weight:300;line-height:1.8;margin-bottom:32px;padding-left:20px;">
+            <li style="margin-bottom:8px;">Treatment at a recognised private or government hospital</li>
+            <li style="margin-bottom:8px;">Consultations with a specialist, even if surgery may be deferred</li>
+            <li style="margin-bottom:8px;">Ayurvedic or other traditional Indian medical treatments (with documentation)</li>
+            <li style="margin-bottom:8px;">Follow-up visits after a prior treatment in India</li>
+          </ul>
+          <p style="color:var(--text-mid);font-weight:300;line-height:1.8;margin-bottom:32px;">Citizens of most countries in Central Asia, Africa, and the Middle East are eligible. The visa is not available to nationals of Pakistan, Bangladesh, Sri Lanka, and Afghanistan via the standard online route — separate arrangements apply for those nationalities.</p>
+          <h2 style="font-size:26px;margin-bottom:16px;margin-top:40px;">Step-by-Step Application Process</h2>
+          <div style="display:flex;flex-direction:column;gap:0;">
+            <div style="display:flex;gap:20px;padding:20px 0;border-bottom:1px solid var(--border-light);">
+              <div style="width:36px;height:36px;border-radius:50%;background:var(--teal);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:600;font-size:14px;flex-shrink:0;">1</div>
+              <div><strong style="display:block;margin-bottom:6px;color:var(--text);">Obtain your hospital invitation letter</strong><p style="color:var(--text-mid);font-weight:300;font-size:14px;line-height:1.7;margin:0;">Your treating hospital must issue a formal letter confirming your appointment, diagnosis, planned treatment, and estimated duration. Global Health Bridge coordinates this letter directly with the hospital on your behalf — it is typically issued within 2–3 business days of your case being accepted.</p></div>
+            </div>
+            <div style="display:flex;gap:20px;padding:20px 0;border-bottom:1px solid var(--border-light);">
+              <div style="width:36px;height:36px;border-radius:50%;background:var(--teal);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:600;font-size:14px;flex-shrink:0;">2</div>
+              <div><strong style="display:block;margin-bottom:6px;color:var(--text);">Gather your documents</strong><p style="color:var(--text-mid);font-weight:300;font-size:14px;line-height:1.7;margin:0;">Required documents include: valid passport (minimum 6 months validity), recent passport-size photograph, hospital invitation letter, medical reports or diagnosis documents from your home doctor, completed visa application form (available at indianvisaonline.gov.in), and proof of financial means (bank statement).</p></div>
+            </div>
+            <div style="display:flex;gap:20px;padding:20px 0;border-bottom:1px solid var(--border-light);">
+              <div style="width:36px;height:36px;border-radius:50%;background:var(--teal);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:600;font-size:14px;flex-shrink:0;">3</div>
+              <div><strong style="display:block;margin-bottom:6px;color:var(--text);">Complete the online application</strong><p style="color:var(--text-mid);font-weight:300;font-size:14px;line-height:1.7;margin:0;">Fill in the online visa application at the Indian government's official visa portal. Select "Medical" as the visa category. Upload your photograph and supporting documents. Pay the applicable visa fee (varies by nationality, typically USD 25–80).</p></div>
+            </div>
+            <div style="display:flex;gap:20px;padding:20px 0;border-bottom:1px solid var(--border-light);">
+              <div style="width:36px;height:36px;border-radius:50%;background:var(--teal);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:600;font-size:14px;flex-shrink:0;">4</div>
+              <div><strong style="display:block;margin-bottom:6px;color:var(--text);">Submit at your nearest Indian Embassy or Consulate</strong><p style="color:var(--text-mid);font-weight:300;font-size:14px;line-height:1.7;margin:0;">Book a biometric appointment at the Indian Embassy or Visa Application Centre (VAC) in your country. Bring your original documents plus printed copies. In most Central Asian and African capitals, processing time is 5–10 business days after biometric submission.</p></div>
+            </div>
+            <div style="display:flex;gap:20px;padding:20px 0;">
+              <div style="width:36px;height:36px;border-radius:50%;background:var(--teal);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:600;font-size:14px;flex-shrink:0;">5</div>
+              <div><strong style="display:block;margin-bottom:6px;color:var(--text);">Receive and verify your visa</strong><p style="color:var(--text-mid);font-weight:300;font-size:14px;line-height:1.7;margin:0;">Once approved, verify that the visa type reads "MEDICAL" and that the validity period and number of entries match your expected treatment timeline. If your treatment is expected to exceed the visa validity, GHB can arrange an extension through the Foreigners Regional Registration Office (FRRO) in India.</p></div>
+            </div>
+          </div>
+          <h2 style="font-size:26px;margin-bottom:16px;margin-top:40px;">The Medical Attendant Visa (MED-X)</h2>
+          <p style="color:var(--text-mid);font-weight:300;line-height:1.8;margin-bottom:32px;">India's MED-X visa allows up to two family members or companions to accompany the patient. The application process is identical to the MED Visa, with the addition of a letter confirming the relationship to the patient. GHB coordinates both the patient and attendant visa applications simultaneously to ensure everyone travels together. We strongly recommend that at least one attendant accompanies you, particularly for major surgeries.</p>
+          <h2 style="font-size:26px;margin-bottom:16px;margin-top:40px;">Common Mistakes That Delay Visa Approval</h2>
+          <ul style="color:var(--text-mid);font-weight:300;line-height:1.8;margin-bottom:32px;padding-left:20px;">
+            <li style="margin-bottom:8px;"><strong style="color:var(--text);">Incomplete medical documentation:</strong> The visa officer needs to see a clear diagnosis. Vague letters like "the patient needs medical attention" are routinely rejected. Your hospital letter must specify the condition and proposed treatment.</li>
+            <li style="margin-bottom:8px;"><strong style="color:var(--text);">Applying too early or too late:</strong> Apply no more than 3 months before your treatment date, and allow at least 15 business days for processing. Last-minute applications create unnecessary stress.</li>
+            <li style="margin-bottom:8px;"><strong style="color:var(--text);">Wrong visa category:</strong> Applying on a tourist visa and then seeking medical treatment is not recommended — it can complicate insurance claims and extensions.</li>
+            <li style="margin-bottom:8px;"><strong style="color:var(--text);">Passport validity oversight:</strong> Your passport must be valid for at least 6 months beyond your planned return date. Renew it before applying if necessary.</li>
+          </ul>
+          <h2 style="font-size:26px;margin-bottom:16px;margin-top:40px;">How Global Health Bridge Handles the Process for You</h2>
+          <p style="color:var(--text-mid);font-weight:300;line-height:1.8;margin-bottom:16px;">The visa process is one of the most confusing and stressful parts of organising medical travel. Global Health Bridge manages it entirely on your behalf:</p>
+          <ul style="color:var(--text-mid);font-weight:300;line-height:1.8;margin-bottom:32px;padding-left:20px;">
+            <li style="margin-bottom:8px;">We obtain the official hospital invitation letter directly from the treating department</li>
+            <li style="margin-bottom:8px;">We prepare a complete document checklist specific to your nationality and embassy</li>
+            <li style="margin-bottom:8px;">We guide you through the online application form step by step</li>
+            <li style="margin-bottom:8px;">We advise on appointment booking at your nearest Indian Embassy or VAC</li>
+            <li style="margin-bottom:8px;">If your treatment extends beyond your visa validity, we arrange the FRRO extension in India</li>
+          </ul>
+          <div style="background:linear-gradient(135deg,#085040,#0d6b55);border-radius:var(--radius-lg);padding:32px;margin-top:40px;margin-bottom:40px;">
+            <h3 style="color:#fff;margin-bottom:10px;">Let us handle your entire visa process — at no extra charge</h3>
+            <p style="color:rgba(255,255,255,0.75);font-weight:300;margin-bottom:20px;font-size:15px;">Visa support is included in all Global Health Bridge service packages. Get in touch to start your free consultation.</p>
+            <button class="btn btn-outline-white" onclick="showPage('contact')">Start your free consultation &rarr;</button>
+          </div>
+          <h3 style="margin-bottom:20px;">Related Articles</h3>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+            <div class="blog-card" onclick="showPage('blog-post-1')" style="cursor:pointer;">
+              <div class="blog-card-top" style="min-height:80px;"><span class="blog-cat">Cost &amp; Planning</span></div>
+              <div class="blog-card-body"><h4 style="font-size:15px;">Treatment Cost in India vs. UK, US &amp; Europe</h4><div class="blog-meta">March 28, 2026 &middot; 6 min</div></div>
+            </div>
+            <div class="blog-card" onclick="showPage('blog-post-3')" style="cursor:pointer;">
+              <div class="blog-card-top" style="min-height:80px;"><span class="blog-cat">Hospitals &amp; Quality</span></div>
+              <div class="blog-card-body"><h4 style="font-size:15px;">Best Hospitals in India for International Patients</h4><div class="blog-meta">April 10, 2026 &middot; 7 min</div></div>
+            </div>
+          </div>
+        </article>
+        <aside class="blog-sidebar" style="position:sticky;top:88px;background:var(--neutral);border-radius:var(--radius-lg);padding:24px;border:1px solid var(--border);">
+          <div style="font-size:11px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-muted);margin-bottom:14px;">Contents</div>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:10px;">
+            <li><a href="#" style="font-size:13px;color:var(--text-mid);text-decoration:none;font-weight:300;">Who Qualifies?</a></li>
+            <li><a href="#" style="font-size:13px;color:var(--text-mid);text-decoration:none;font-weight:300;">Step-by-Step Process</a></li>
+            <li><a href="#" style="font-size:13px;color:var(--text-mid);text-decoration:none;font-weight:300;">Medical Attendant Visa</a></li>
+            <li><a href="#" style="font-size:13px;color:var(--text-mid);text-decoration:none;font-weight:300;">Common Mistakes</a></li>
+            <li><a href="#" style="font-size:13px;color:var(--text-mid);text-decoration:none;font-weight:300;">How GHB Helps You</a></li>
+          </ul>
+          <div style="margin-top:24px;padding-top:20px;border-top:1px solid var(--border);">
+            <p style="font-size:13px;color:var(--text-mid);margin-bottom:14px;font-weight:300;">We handle your visa paperwork — free of charge.</p>
+            <button class="btn btn-primary" style="width:100%;justify-content:center;font-size:13px;" onclick="showPage('contact')">Free Consultation</button>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ═══════════════════ BLOG POST 3 ═══════════════════ -->
+<div id="page-blog-post-3" class="page">
+  <div class="page-banner">
+    <div class="wrap">
+      <div class="breadcrumb"><a onclick="showPage('home')">Home</a><span>/</span><a onclick="showPage('blog')">Blog</a><span>/</span>Best Hospitals</div>
+      <span style="display:inline-block;font-size:11px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#a0e8d0;background:rgba(160,232,208,0.15);padding:4px 12px;border-radius:20px;margin-bottom:16px;">Hospitals &amp; Quality</span>
+      <h2>The Best Hospitals in India for International Patients (JCI &amp; NABH Accredited)</h2>
+      <p style="margin-top:12px;font-size:13px;color:rgba(255,255,255,0.5);">April 10, 2026 &middot; 7 min read</p>
+    </div>
+  </div>
+  <section style="background:#fff;">
+    <div class="wrap">
+      <div style="display:grid;grid-template-columns:1fr 280px;gap:48px;align-items:start;" class="blog-post-grid">
+        <article style="max-width:720px;">
+          <p style="font-size:17px;color:var(--text-mid);line-height:1.9;font-weight:300;margin-bottom:32px;">When travelling abroad for medical treatment, nothing matters more than the quality and safety of the hospital you choose. For international patients, the most reliable indicators of hospital quality are independent accreditations — specifically, JCI (Joint Commission International) and NABH (National Accreditation Board for Hospitals). Understanding what these accreditations mean, and which hospitals hold them, is the foundation of safe medical travel to India.</p>
+          <h2 style="font-size:26px;margin-bottom:16px;margin-top:40px;">What Is JCI Accreditation — and Why Does It Matter?</h2>
+          <p style="color:var(--text-mid);font-weight:300;line-height:1.8;margin-bottom:16px;">The Joint Commission International (JCI) is the global arm of the Joint Commission, the same body that accredits the most prestigious hospitals in the United States. JCI accreditation represents the gold standard in international healthcare quality — it assesses over 1,000 measurable standards across patient care, safety protocols, infection control, clinical governance, and organisational management.</p>
+          <p style="color:var(--text-mid);font-weight:300;line-height:1.8;margin-bottom:32px;">A JCI-accredited hospital in India is held to the same standards as top hospitals in New York, London, or Singapore. The accreditation is re-evaluated every three years through rigorous on-site surveys, meaning it cannot be obtained once and forgotten. As of 2026, fewer than 100 hospitals in India hold JCI accreditation — making it a meaningful differentiator, not a marketing label.</p>
+          <h2 style="font-size:26px;margin-bottom:16px;margin-top:40px;">What Is NABH Accreditation?</h2>
+          <p style="color:var(--text-mid);font-weight:300;line-height:1.8;margin-bottom:32px;">NABH — the National Accreditation Board for Hospitals &amp; Healthcare Providers — is India's own national quality standard for hospitals, operated under the Quality Council of India. It is specifically tailored to Indian healthcare contexts and has become the baseline quality benchmark for any reputable private hospital in the country. NABH accreditation covers patient rights, clinical care, infection control, human resources, and facility management. Many of India's best hospitals hold both JCI and NABH accreditation — the combination provides a dual layer of quality assurance.</p>
+          <h2 style="font-size:26px;margin-bottom:16px;margin-top:40px;">Global Health Bridge Partner Hospitals</h2>
+          <p style="color:var(--text-mid);font-weight:300;line-height:1.8;margin-bottom:24px;">All five hospitals in the Global Health Bridge network are JCI or NABH accredited and have established international patient departments with dedicated coordinators and language support.</p>
+          <div style="display:flex;flex-direction:column;gap:20px;margin-bottom:40px;">
+            <div style="border:1px solid var(--border);border-radius:var(--radius-lg);padding:24px;">
+              <div style="font-size:10px;letter-spacing:0.14em;text-transform:uppercase;font-weight:600;color:var(--teal);margin-bottom:8px;">MAX HEALTHCARE</div>
+              <h3 style="font-size:20px;margin-bottom:8px;">BLK-Max Super Speciality Hospital, New Delhi</h3>
+              <p style="color:var(--text-mid);font-weight:300;line-height:1.8;font-size:14px;margin-bottom:12px;">One of North India's largest super-speciality hospitals, BLK-Max is a 650-bed facility renowned for its oncology, cardiac, and transplant programmes. The hospital's Blood and Marrow Transplant unit is among the busiest in Asia, and its cardiac surgery team performs over 3,000 open-heart procedures annually. BLK-Max holds NABH accreditation and has one of the most active international patient programmes in Delhi.</p>
+              <div class="badge-row"><span class="badge badge-teal">NABH Accredited</span><span class="badge badge-blue">Oncology Centre of Excellence</span><span class="badge badge-blue">Transplant Programme</span></div>
+            </div>
+            <div style="border:1px solid var(--border);border-radius:var(--radius-lg);padding:24px;">
+              <div style="font-size:10px;letter-spacing:0.14em;text-transform:uppercase;font-weight:600;color:var(--teal);margin-bottom:8px;">MAX HEALTHCARE</div>
+              <h3 style="font-size:20px;margin-bottom:8px;">Max Hospital Saket, South Delhi</h3>
+              <p style="color:var(--text-mid);font-weight:300;line-height:1.8;font-size:14px;margin-bottom:12px;">Max Hospital Saket is a JCI-accredited flagship hospital that consistently ranks among India's top five multi-speciality hospitals. With over 500 beds and 25+ specialities, it is particularly recognised for orthopaedics, neurosciences, and minimal-access surgery. The hospital's Centre for Bone &amp; Joint has performed over 10,000 knee and hip replacements, making it a destination of choice for international orthopaedic patients.</p>
+              <div class="badge-row"><span class="badge badge-teal">JCI Accredited</span><span class="badge badge-blue">Top 5 Hospital India</span><span class="badge badge-blue">Orthopaedics Leader</span></div>
+            </div>
+            <div style="border:1px solid var(--border);border-radius:var(--radius-lg);padding:24px;">
+              <div style="font-size:10px;letter-spacing:0.14em;text-transform:uppercase;font-weight:600;color:var(--teal);margin-bottom:8px;">MAX HEALTHCARE</div>
+              <h3 style="font-size:20px;margin-bottom:8px;">Max Hospital Dwarka, South-West Delhi</h3>
+              <p style="color:var(--text-mid);font-weight:300;line-height:1.8;font-size:14px;margin-bottom:12px;">Strategically located near Indira Gandhi International Airport, Max Hospital Dwarka offers excellent accessibility for international travellers — especially useful for patients arriving late or requiring urgent admission. A modern, well-equipped facility, it covers all major surgical specialities and provides a high standard of international patient services at a slightly lower price point than the flagship Saket campus.</p>
+              <div class="badge-row"><span class="badge badge-teal">NABH Accredited</span><span class="badge badge-blue">Near IGI Airport</span><span class="badge badge-blue">Multi-Speciality</span></div>
+            </div>
+            <div style="border:1px solid var(--border);border-radius:var(--radius-lg);padding:24px;">
+              <div style="font-size:10px;letter-spacing:0.14em;text-transform:uppercase;font-weight:600;color:var(--blue);margin-bottom:8px;">FORTIS HEALTHCARE</div>
+              <h3 style="font-size:20px;margin-bottom:8px;">Fortis Flt. Lt. Rajan Dhall Hospital, Vasant Kunj</h3>
+              <p style="color:var(--text-mid);font-weight:300;line-height:1.8;font-size:14px;margin-bottom:12px;">Consistently ranked among Newsweek's World's Best Hospitals from 2022 to 2025, Fortis Rajan Dhall is a premium tertiary care facility covering cardiology, oncology, neurology, and orthopaedics. Its proximity to Indira Gandhi Airport (15–20 minutes) makes it particularly convenient for international arrivals. The hospital is NABH accredited and has a dedicated international patient lounge and in-house interpreter services.</p>
+              <div class="badge-row"><span class="badge badge-teal">NABH Accredited</span><span class="badge badge-blue">Newsweek World's Best 2022–2025</span><span class="badge badge-blue">Near IGI Airport</span></div>
+            </div>
+            <div style="border:1px solid var(--border);border-radius:var(--radius-lg);padding:24px;">
+              <div style="font-size:10px;letter-spacing:0.14em;text-transform:uppercase;font-weight:600;color:var(--blue);margin-bottom:8px;">FORTIS HEALTHCARE</div>
+              <h3 style="font-size:20px;margin-bottom:8px;">Fortis Escorts Heart Institute, Okhla Road</h3>
+              <p style="color:var(--text-mid);font-weight:300;line-height:1.8;font-size:14px;margin-bottom:12px;">Fortis Escorts is one of Asia's most respected dedicated cardiac hospitals, having performed over 80,000 cardiac surgeries since its founding. The institute houses India's first cardiac catheterisation laboratory and continues to be a reference centre for complex cardiac cases including valve replacements, TAVI procedures, and paediatric cardiac surgery. It is the preferred destination for international patients with complex heart conditions seeking a specialist-only environment.</p>
+              <div class="badge-row"><span class="badge badge-teal">NABH Accredited</span><span class="badge badge-blue">80,000+ Cardiac Surgeries</span><span class="badge badge-blue">Cardiac Centre of Excellence</span></div>
+            </div>
+          </div>
+          <h2 style="font-size:26px;margin-bottom:16px;margin-top:8px;">How We Select and Vet Our Hospital Partners</h2>
+          <p style="color:var(--text-mid);font-weight:300;line-height:1.8;margin-bottom:16px;">Global Health Bridge does not simply list any accredited hospital. Our selection criteria include:</p>
+          <ul style="color:var(--text-mid);font-weight:300;line-height:1.8;margin-bottom:32px;padding-left:20px;">
+            <li style="margin-bottom:8px;">Active JCI or NABH accreditation with no recent sanctions</li>
+            <li style="margin-bottom:8px;">A functioning international patient department with multilingual support</li>
+            <li style="margin-bottom:8px;">Transparent, fixed-price treatment quotations for international patients</li>
+            <li style="margin-bottom:8px;">Verified outcome data and surgeon credentials</li>
+            <li style="margin-bottom:8px;">Positive patient feedback over a minimum of 12 months of referrals</li>
+          </ul>
+          <h2 style="font-size:26px;margin-bottom:16px;margin-top:8px;">Never Use an Unaccredited Hospital for Medical Travel</h2>
+          <p style="color:var(--text-mid);font-weight:300;line-height:1.8;margin-bottom:32px;">India has thousands of private hospitals — the majority of which are not internationally accredited. While many provide excellent routine care, treating patients without the quality assurance of JCI or NABH in complex cases is a significant risk. Unaccredited hospitals are not subject to the same infection control audits, surgical outcome monitoring, or patient rights standards. For international patients who lack local knowledge and networks, an adverse outcome at an unaccredited facility can leave you with no recourse and no support system. Global Health Bridge will never refer a patient to an unaccredited facility.</p>
+          <div style="background:linear-gradient(135deg,#085040,#0d6b55);border-radius:var(--radius-lg);padding:32px;margin-top:40px;margin-bottom:40px;">
+            <h3 style="color:#fff;margin-bottom:10px;">Not sure which hospital is right for your condition?</h3>
+            <p style="color:rgba(255,255,255,0.75);font-weight:300;margin-bottom:20px;font-size:15px;">Our medical coordinators will match you to the right hospital based on your specific diagnosis, budget, and requirements.</p>
+            <button class="btn btn-outline-white" onclick="showPage('contact')">Talk to us — it's free &rarr;</button>
+          </div>
+          <h3 style="margin-bottom:20px;">Related Articles</h3>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+            <div class="blog-card" onclick="showPage('blog-post-1')" style="cursor:pointer;">
+              <div class="blog-card-top" style="min-height:80px;"><span class="blog-cat">Cost &amp; Planning</span></div>
+              <div class="blog-card-body"><h4 style="font-size:15px;">Treatment Cost in India vs. UK, US &amp; Europe</h4><div class="blog-meta">March 28, 2026 &middot; 6 min</div></div>
+            </div>
+            <div class="blog-card" onclick="showPage('blog-post-2')" style="cursor:pointer;">
+              <div class="blog-card-top" style="min-height:80px;"><span class="blog-cat">Visa &amp; Travel</span></div>
+              <div class="blog-card-body"><h4 style="font-size:15px;">How to Get a Medical Visa for India</h4><div class="blog-meta">April 3, 2026 &middot; 5 min</div></div>
+            </div>
+          </div>
+        </article>
+        <aside class="blog-sidebar" style="position:sticky;top:88px;background:var(--neutral);border-radius:var(--radius-lg);padding:24px;border:1px solid var(--border);">
+          <div style="font-size:11px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-muted);margin-bottom:14px;">Contents</div>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:10px;">
+            <li><a href="#" style="font-size:13px;color:var(--text-mid);text-decoration:none;font-weight:300;">JCI Accreditation</a></li>
+            <li><a href="#" style="font-size:13px;color:var(--text-mid);text-decoration:none;font-weight:300;">NABH Accreditation</a></li>
+            <li><a href="#" style="font-size:13px;color:var(--text-mid);text-decoration:none;font-weight:300;">Partner Hospitals</a></li>
+            <li><a href="#" style="font-size:13px;color:var(--text-mid);text-decoration:none;font-weight:300;">How We Vet Hospitals</a></li>
+            <li><a href="#" style="font-size:13px;color:var(--text-mid);text-decoration:none;font-weight:300;">Unaccredited Hospital Risks</a></li>
+          </ul>
+          <div style="margin-top:24px;padding-top:20px;border-top:1px solid var(--border);">
+            <p style="font-size:13px;color:var(--text-mid);margin-bottom:14px;font-weight:300;">Get matched to the right hospital for your condition.</p>
+            <button class="btn btn-primary" style="width:100%;justify-content:center;font-size:13px;" onclick="showPage('contact')">Free Consultation</button>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+</div>
+
 <!-- ══════════════════════════ CONTACT PAGE ══════════════════════════ -->
 <div class="page" id="page-contact">
   <div class="page-banner">
     <div class="wrap">
       <div class="breadcrumb"><a onclick="showPage('home')">Home</a><span>/</span>Contact Us</div>
       <p style="font-family:'Playfair Display',serif;font-size:15px;font-style:italic;color:rgba(255,255,255,0.55);margin-bottom:10px;letter-spacing:0.02em;">Across Borders. Besides You.</p>
-      <h1>Begin Your <em style="color:#a0e8d0;">Health Journey</em></h1>
+      <h2>Begin Your <em style="color:#a0e8d0;">Health Journey</em></h2>
       <p>Talk to our team today — free case review, no obligations, and a response within 24 hours.</p>
     </div>
   </div>
@@ -1133,7 +1731,7 @@ a{color:inherit;}
           <div class="section-label">Reach Out</div>
           <h2 style="margin-bottom:16px;">We're Here <em>to Help</em></h2>
           <p style="font-size:15px;color:var(--text-mid);font-weight:300;line-height:1.8;margin-bottom:32px;">No pressure, no obligation. Share your case with us and our team will provide honest, expert guidance on the best path forward — completely free of charge.</p>
-          <div class="contact-detail"><div class="contact-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke="#0d6b55" stroke-width="1.5" stroke-linecap="round"/></svg></div><div><div class="cd-label">Email</div><div class="cd-value">globalhealthbridge.in@gmail.com</div></div></div>
+          <div class="contact-detail"><div class="contact-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke="#0d6b55" stroke-width="1.5" stroke-linecap="round"/></svg></div><div><div class="cd-label">Email</div><div class="cd-value">info@globalhealthbridge.co.in <span style="font-size:11px;color:var(--text-muted);">— We respond within 24 hrs</span></div></div></div>
           <div class="contact-detail"><div class="contact-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" stroke="#0d6b55" stroke-width="1.5" stroke-linecap="round"/></svg></div><div><div class="cd-label">Phone / WhatsApp</div><div class="cd-value">+91 98716 15884</div></div></div>
           <div class="contact-detail"><div class="contact-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" stroke="#0d6b55" stroke-width="1.5" stroke-linecap="round"/></svg></div><div><div class="cd-label">Response Time</div><div class="cd-value">Within 24 hours</div></div></div>
           <div class="contact-detail"><div class="contact-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke="#0d6b55" stroke-width="1.5"/></svg></div><div><div class="cd-label">Website</div><div class="cd-value">globalhealthbridge.co.in</div></div></div>
@@ -1152,7 +1750,7 @@ a{color:inherit;}
             <div class="form-group"><label>Email Address</label><input type="email" id="cf-email" placeholder="Email"></div>
             <div class="form-row">
               <div class="form-group"><label>Phone / WhatsApp</label><input type="tel" id="cf-phone" placeholder="+[Country Code] Phone Number"></div>
-              <div class="form-group"><label>Country</label><select id="cf-country"><option value="">Select country</option><option>Kazakhstan</option><option>Uzbekistan</option><option>Turkmenistan</option><option>Kyrgyzstan</option><option>Tajikistan</option><option>Nigeria</option><option>Kenya</option><option>Ethiopia</option><option>Tanzania</option><option>Uganda</option><option>Other</option></select></div>
+              <div class="form-group"><label>Country</label><select id="cf-country"><option value="">Select country</option><option>Kazakhstan</option><option>Uzbekistan</option><option>Turkmenistan</option><option>Kyrgyzstan</option><option>Tajikistan</option><option>Nigeria</option><option>Kenya</option><option>Ethiopia</option><option>Tanzania</option><option>Uganda</option><option>Bangladesh</option><option>Iraq</option><option>Saudi Arabia</option><option>United Arab Emirates</option><option>Ghana</option><option>Zimbabwe</option><option>Myanmar</option><option>Afghanistan</option><option>Algeria</option><option>Angola</option><option>Armenia</option><option>Azerbaijan</option><option>Bahrain</option><option>Cameroon</option><option>Chad</option><option>Côte d'Ivoire</option><option>Democratic Republic of Congo</option><option>Egypt</option><option>Eritrea</option><option>Gambia</option><option>Georgia</option><option>Guinea</option><option>India</option><option>Indonesia</option><option>Iran</option><option>Jordan</option><option>Kuwait</option><option>Lebanon</option><option>Libya</option><option>Madagascar</option><option>Malawi</option><option>Mali</option><option>Mauritius</option><option>Moldova</option><option>Mongolia</option><option>Morocco</option><option>Mozambique</option><option>Namibia</option><option>Nepal</option><option>Niger</option><option>Oman</option><option>Pakistan</option><option>Palestine</option><option>Philippines</option><option>Qatar</option><option>Rwanda</option><option>Senegal</option><option>Sierra Leone</option><option>Somalia</option><option>South Africa</option><option>South Sudan</option><option>Sri Lanka</option><option>Sudan</option><option>Syria</option><option>Thailand</option><option>Tunisia</option><option>Turkey</option><option>Ukraine</option><option>Vietnam</option><option>Yemen</option><option>Zambia</option><option>Other</option></select></div>
             </div>
             <div class="form-group"><label>Medical Specialty</label><select id="cf-specialty"><option value="">Select specialty</option><option>Cardiology</option><option>Oncology</option><option>Orthopaedics</option><option>Organ Transplant</option><option>Infertility / IVF</option><option>Urology</option><option>General Surgery</option><option>Other / Not Sure</option></select></div>
             <div class="form-group"><label>Brief Description of Condition</label><textarea id="cf-desc" placeholder="Please briefly describe your condition and what treatment you are seeking..."></textarea></div>
@@ -1179,6 +1777,7 @@ a{color:inherit;}
         <div class="footer-brand-name">Global Health Bridge</div>
         <p style="font-family:'Playfair Display',serif;font-size:14px;font-style:italic;color:rgba(255,255,255,0.5);margin-bottom:8px;letter-spacing:0.02em;">Across Borders. Besides You.</p>
         <p class="footer-desc">A structured, ethical, and transparent international patient support platform — connecting patients from Central Asia and Africa with world-class healthcare in India.</p>
+        <p style="font-size:12px;color:rgba(255,255,255,0.35);margin-top:8px;">Registered in India &middot; Operating across Central Asia &amp; Africa</p>
         <div class="social-links">
           <!-- Facebook -->
           <a class="social-link" href="https://www.facebook.com/people/Global-Health-Bridge/61578458949745/" target="_blank" aria-label="Facebook">
@@ -1218,9 +1817,11 @@ a{color:inherit;}
         <div class="footer-col-title">Contact</div>
         <ul class="footer-links">
           <li><a onclick="showPage('faqs')">FAQs</a></li>
+          <li><a onclick="showPage('blog')">Medical Travel Blog</a></li>
           <li><a onclick="showPage('contact')">Get Consultation</a></li>
-          <li><a href="mailto:globalhealthbridge.in@gmail.com">globalhealthbridge.in@gmail.com</a></li>
+          <li><a href="mailto:info@globalhealthbridge.co.in">info@globalhealthbridge.co.in</a><div style="font-size:11px;color:rgba(255,255,255,0.25);margin-top:2px;">We respond within 24 hrs</div></li>
           <li><a href="https://wa.me/919871615884" target="_blank">WhatsApp: +91 98716 15884</a></li>
+          <li><a onclick="showPage('contact')" style="color:rgba(255,255,255,0.45);font-size:13px;">Doctor or agent? Partner with us &rarr;</a></li>
         </ul>
       </div>
     </div>
@@ -1237,9 +1838,12 @@ a{color:inherit;}
 </footer>
 
 <!-- Floating WhatsApp -->
-<a href="https://wa.me/919871615884" class="whatsapp-float" target="_blank" title="Chat on WhatsApp" aria-label="WhatsApp">
+<div style="position:fixed;bottom:28px;right:28px;z-index:500;display:flex;align-items:center;">
+<a href="https://wa.me/919871615884?text=Hello%2C%20I%20found%20Global%20Health%20Bridge%20online%20and%20would%20like%20to%20inquire%20about%20medical%20treatment%20in%20India." class="whatsapp-float" target="_blank" title="Chat on WhatsApp" aria-label="WhatsApp" style="position:static;z-index:auto;">
   <svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  <span style="position:absolute;right:64px;top:50%;transform:translateY(-50%);background:#1a2634;color:#fff;font-size:12px;font-family:'Inter',sans-serif;padding:6px 12px;border-radius:6px;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity 0.2s;" class="wa-tooltip">Chat with us on WhatsApp</span>
 </a>
+</div>
 
 <!-- Sticky CTA -->
 <button class="sticky-consult" onclick="showPage('contact')">
@@ -1250,16 +1854,69 @@ a{color:inherit;}
 
 <script>
 // ═══ PAGE ROUTING ═══
+// ═══ META DATA PER ROUTE ═══
+const pageMeta = {
+  'home': {title:'Global Health Bridge – World-Class Healthcare in India for International Patients', desc:'Global Health Bridge helps international patients from Central Asia and Africa access world-class, affordable medical treatment in India. JCI & NABH accredited hospitals, end-to-end support, visa assistance.'},
+  'specialties': {title:'Medical Specialties | Global Health Bridge', desc:'Explore our full range of medical specialties available through Global Health Bridge — from cardiology to organ transplant, all at JCI-accredited hospitals in India.'},
+  'patientjourney': {title:'Your Medical Travel Journey to India | Global Health Bridge', desc:'A step-by-step guide to your medical travel journey with Global Health Bridge — from first contact to post-treatment follow-up.'},
+  'hospitals': {title:'JCI & NABH Accredited Partner Hospitals in India | Global Health Bridge', desc:'Our partner hospitals include BLK-Max, Max Saket, Max Dwarka, Fortis Rajan Dhall, and Fortis Escorts — all JCI or NABH accredited.'},
+  'about': {title:'About Global Health Bridge | Medical Facilitation India', desc:'Learn about Global Health Bridge — our mission, team, and commitment to helping international patients access world-class medical care in India.'},
+  'faqs': {title:'Medical Travel India FAQ | Global Health Bridge', desc:'Answers to common questions about medical travel to India — costs, visas, hospital accreditation, and how Global Health Bridge supports you.'},
+  'blog': {title:'Medical Travel Blog | Healthcare in India | Global Health Bridge', desc:'Guides, tips, and insights for international patients considering treatment in India.'},
+  'blog-post-1': {title:'How Much Does Treatment in India Cost Compared to the UK, US & Europe? | GHB', desc:'A detailed cost comparison across cardiac bypass, knee replacement, IVF, and liver transplant — and why India offers the same quality at a fraction of the price.'},
+  'blog-post-2': {title:'How to Get a Medical Visa for India | Global Health Bridge', desc:'Everything you need to know about India\'s Medical Visa (MED Visa), the application process, documents required, and timelines.'},
+  'blog-post-3': {title:'Best Hospitals in India for International Patients (JCI & NABH) | GHB', desc:'A guide to JCI and NABH accreditation and a detailed look at the five hospitals in the Global Health Bridge network.'},
+  'contact': {title:'Contact Global Health Bridge | Free Consultation', desc:'Get in touch with Global Health Bridge for a free consultation about medical treatment in India.'}
+};
+const specialtyMeta = {
+  cardiology: {title:'Heart Surgery in India for International Patients | Global Health Bridge', desc:'Expert cardiac care at JCI-accredited hospitals in India. Bypass surgery, valve replacement, angioplasty — at 70% less than UK/US costs.'},
+  oncology: {title:'Cancer Treatment in India for International Patients | Global Health Bridge', desc:'World-class oncology at Fortis and BLK-Max hospitals in India. Chemotherapy, surgery, radiation — comprehensive cancer care.'},
+  orthopaedics: {title:'Knee & Hip Replacement in India | Global Health Bridge', desc:'Affordable knee and hip replacement surgery in India at JCI-accredited hospitals. Save up to 80% vs UK/US costs.'},
+  transplant: {title:'Kidney & Liver Transplant in India | Global Health Bridge', desc:'India\'s best transplant teams at BLK-Max and Fortis. Kidney transplant, liver transplant — expert coordination by Global Health Bridge.'},
+  ivf: {title:'IVF Treatment in India for International Patients | Global Health Bridge', desc:'Advanced IVF and fertility treatment in India. Cutting-edge technology, experienced specialists, and compassionate support.'},
+  urology: {title:'Urology Surgery in India | Global Health Bridge', desc:'Expert urology and surgical care in India. Prostate treatment, kidney stones, laparoscopic surgery at accredited hospitals.'}
+};
+let currentSpecialty = 'cardiology';
+
+function updateMeta(title, desc, path) {
+  const base = 'https://www.globalhealthbridge.co.in/';
+  const url = path ? base + '#' + path : base;
+  document.title = title;
+  const dm = document.querySelector('meta[name="description"]');
+  if(dm) dm.content = desc;
+  const canon = document.querySelector('link[rel="canonical"]');
+  if(canon) canon.href = url;
+  const ogt = document.querySelector('meta[property="og:title"]');
+  if(ogt) ogt.content = title;
+  const ogd = document.querySelector('meta[property="og:description"]');
+  if(ogd) ogd.content = desc;
+  const ogu = document.querySelector('meta[property="og:url"]');
+  if(ogu) ogu.content = url;
+  const twt = document.querySelector('meta[name="twitter:title"]');
+  if(twt) twt.content = title;
+  const twd = document.querySelector('meta[name="twitter:description"]');
+  if(twd) twd.content = desc;
+}
+
 function showPage(pageId) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   const target = document.getElementById('page-' + pageId);
   if (target) { target.classList.add('active'); window.scrollTo({top:0,behavior:'smooth'}); }
   closeMobile();
+  // Update meta
+  if (pageId === 'specialty-detail') {
+    const sm = specialtyMeta[currentSpecialty];
+    if (sm) updateMeta(sm.title, sm.desc, 'specialty-' + currentSpecialty);
+  } else {
+    const pm = pageMeta[pageId];
+    if (pm) updateMeta(pm.title, pm.desc, pageId !== 'home' ? pageId : '');
+  }
 }
 
 function showSpecialty(key) {
   const data = specialtyData[key];
   if (!data) return;
+  currentSpecialty = key;
   document.getElementById('spec-breadcrumb').textContent = data.name;
   document.getElementById('spec-title').textContent = data.name;
   document.getElementById('spec-subtitle').textContent = data.subtitle;
@@ -1269,6 +1926,12 @@ function showSpecialty(key) {
   document.getElementById('spec-why-travel').innerHTML = `<div class="section-label">Why Patients Travel to India</div><h3 style="margin:8px 0 12px;">India's Advantage in ${data.name}</h3><p style="font-size:14px;color:var(--text-mid);font-weight:300;line-height:1.8;">${data.whyIndia}</p>`;
   document.getElementById('spec-process').innerHTML = data.process.map((s,i)=>`<div style="display:flex;gap:14px;align-items:flex-start;padding:14px 0;border-bottom:1px solid var(--border-light);"><div style="width:28px;height:28px;border-radius:50%;background:var(--blue-light);color:var(--blue);font-size:12px;font-weight:600;display:flex;align-items:center;justify-content:center;flex-shrink:0;">${i+1}</div><div><strong style="font-size:14px;font-weight:500;">${s.title}</strong><p style="font-size:13px;color:var(--text-mid);font-weight:300;margin-top:2px;">${s.desc}</p></div></div>`).join('');
   document.getElementById('spec-faqs').innerHTML = data.faqs.map(f=>`<div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">${f.q}<svg viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button><div class="faq-a">${f.a}</div></div>`).join('');
+  // Add cost comparison table
+  const costData = specialtyCostData[key];
+  if (costData) {
+    const rows = costData.rows.map(r=>`<tr${r[0].indexOf('background')>-1?'':' style="background:#f7f9fc;"'}><td style="padding:10px 14px;font-weight:500;border-bottom:1px solid var(--border);">${r[0]}</td><td style="padding:10px 14px;text-align:center;color:var(--teal);font-weight:600;border-bottom:1px solid var(--border);">${r[1]}</td><td style="padding:10px 14px;text-align:center;border-bottom:1px solid var(--border);">${r[2]}</td><td style="padding:10px 14px;text-align:center;border-bottom:1px solid var(--border);">${r[3]}</td><td style="padding:10px 14px;text-align:center;border-bottom:1px solid var(--border);">${r[4]}</td></tr>`).join('');
+    document.getElementById('spec-cost-table').innerHTML = `<div style="margin-top:32px;"><h3 style="margin-bottom:16px;">Estimated Cost Comparison</h3><div style="overflow-x:auto;"><table style="width:100%;border-collapse:collapse;font-size:13px;"><thead><tr style="background:var(--teal);color:#fff;"><th style="padding:10px 14px;text-align:left;">Procedure</th><th style="padding:10px 14px;text-align:center;">India (USD)</th><th style="padding:10px 14px;text-align:center;">UK</th><th style="padding:10px 14px;text-align:center;">USA</th><th style="padding:10px 14px;text-align:center;">UAE</th></tr></thead><tbody>${rows}</tbody></table></div><p style="font-size:11px;color:var(--text-muted);margin-top:8px;">*Estimates based on published hospital rates. Actual costs depend on complexity and individual case assessment. Contact us for a personalised quote.</p></div>`;
+  }
   showPage('specialty-detail');
 }
 
@@ -1292,6 +1955,40 @@ function toggleFaq(btn){
 }
 
 // ═══ SPECIALTY DATA ═══
+// ═══ SPECIALTY COST DATA ═══
+const specialtyCostData = {
+  cardiology: { rows: [
+    ['Bypass Surgery','$5,000–12,000','~$40,000','~$80,000','~$20,000'],
+    ['Angioplasty','$3,000–6,000','~$12,000','~$25,000','~$10,000'],
+    ['Valve Replacement','$6,000–14,000','~$45,000','~$90,000','~$25,000']
+  ]},
+  oncology: { rows: [
+    ['Chemotherapy (per cycle)','$700–2,500','~$8,000','~$15,000','~$5,000'],
+    ['Tumour Resection','$4,000–12,000','~$25,000','~$60,000','~$18,000'],
+    ['Radiation (course)','$3,000–8,000','~$20,000','~$45,000','~$15,000']
+  ]},
+  orthopaedics: { rows: [
+    ['Knee Replacement','$4,000–8,000','~$18,000','~$35,000','~$14,000'],
+    ['Hip Replacement','$5,000–9,000','~$20,000','~$40,000','~$15,000'],
+    ['Spinal Fusion','$5,000–10,000','~$22,000','~$50,000','~$18,000']
+  ]},
+  transplant: { rows: [
+    ['Kidney Transplant','$14,000–18,000','~$60,000','~$150,000','~$50,000'],
+    ['Liver Transplant','$25,000–40,000','~$130,000','~$300,000','~$80,000'],
+    ['Bone Marrow Transplant','$18,000–30,000','~$80,000','~$200,000','~$60,000']
+  ]},
+  ivf: { rows: [
+    ['IVF (single cycle)','$2,500–5,000','~$8,000','~$15,000','~$7,000'],
+    ['ICSI','$3,000–6,000','~$10,000','~$18,000','~$8,000'],
+    ['Egg Freezing','$2,000–4,000','~$6,000','~$12,000','~$5,000']
+  ]},
+  urology: { rows: [
+    ['Prostatectomy','$4,000–7,000','~$18,000','~$35,000','~$14,000'],
+    ['Kidney Stone Removal','$2,000–4,000','~$8,000','~$15,000','~$6,000'],
+    ['Bladder Surgery','$3,000–6,000','~$14,000','~$28,000','~$10,000']
+  ]}
+};
+
 const specialtyData = {
   cardiology: {
     name: 'Cardiology',
