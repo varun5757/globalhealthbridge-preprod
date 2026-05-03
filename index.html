@@ -7,7 +7,7 @@
 <!-- Primary SEO -->
 <title>International Patient Care Services in India | Global Health Bridge</title>
 <meta name="description" content="Global Health Bridge offers end-to-end medical facilitation for international patients in India — including dedicated on-ground nursing care, patient attendants, ICU nurses, and physiotherapists who can travel with patients for home nursing care after treatment.">
-<meta name="keywords" content="international patient care India, medical tourism India, on-ground patient support India, home nursing care after surgery India, patient attendant India, ICU nurse for international patients, physiotherapy after surgery India, post-operative care India, medical facilitation India, healthcare tourism India, dedicated nurse for medical tourists, personalised post-operative care India">
+<meta name="keywords" content="international patient care India, medical tourism India, on-ground patient support India, home nursing care after surgery India, patient attendant India, ICU nurse for international patients, physiotherapy after surgery India, post-operative care India, medical facilitation India, healthcare tourism India, dedicated nurse for medical tourists, personalised post-operative care India, language interpreter medical tourism India, airport pickup international patients India, halal food accommodation India medical tourism, family accommodation near hospital India, local transport for medical tourists India">
 <meta name="robots" content="index, follow">
 <meta name="author" content="Global Health Bridge">
 <link rel="canonical" href="https://www.globalhealthbridge.co.in/">
@@ -71,6 +71,16 @@
       "@type": "Service",
       "name": "On-Ground & Home Nursing Care for International Patients",
       "description": "Dedicated care professionals including ICU nurses, physiotherapists, semi-nursing staff, and patient attendants who support international patients in India and can travel to their home country for continued post-operative care."
+    },
+    {
+      "@type": "Service",
+      "name": "Language Interpretation for International Patients",
+      "description": "Professional interpreter services in Arabic, French, Swahili, Russian and English, supporting patients throughout hospital consultations and their stay in India."
+    },
+    {
+      "@type": "Service",
+      "name": "Local Transport and Accommodation Coordination",
+      "description": "End-to-end ground transport and accommodation arrangements for international patients and their families, including airport transfers, hospital runs, and meal coordination."
     }
   ],
   "hasOfferCatalog": {
@@ -83,6 +93,22 @@
           "@type": "Service",
           "name": "On-Ground & Home Nursing Care for International Patients",
           "description": "Dedicated care professionals including ICU nurses, physiotherapists, semi-nursing staff, and patient attendants who support international patients in India and can travel to their home country for continued post-operative care."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Language Interpretation for International Patients",
+          "description": "Professional interpreter services in Arabic, French, Swahili, Russian and English, supporting patients throughout hospital consultations and their stay in India."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Local Transport and Accommodation Coordination",
+          "description": "End-to-end ground transport and accommodation arrangements for international patients and their families, including airport transfers, hospital runs, and meal coordination."
         }
       }
     ]
@@ -395,6 +421,19 @@ nav.scrolled{box-shadow:var(--shadow);}
 .section-dark h2 em{color:#7ec8f0;}
 .section-dark .section-desc{color:rgba(255,255,255,0.65);}
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
+.stats-strip{background:#07192e;padding:40px 0;}
+.stats-strip-inner{display:grid;grid-template-columns:repeat(4,1fr);gap:0;}
+.stats-strip-item{text-align:center;padding:12px 24px;position:relative;}
+.stats-strip-item+.stats-strip-item::before{content:'';position:absolute;left:0;top:50%;transform:translateY(-50%);height:40px;width:1px;background:#f0a500;opacity:0.5;}
+.stats-strip-num{font-family:'Playfair Display',serif;font-size:42px;font-weight:700;color:#00c8a0;line-height:1;margin-bottom:8px;}
+.stats-strip-label{font-size:13px;color:rgba(255,255,255,0.7);font-weight:300;letter-spacing:0.03em;}
+.family-block{background:rgba(0,200,160,0.06);border-top:1px solid rgba(0,200,160,0.15);border-bottom:1px solid rgba(0,200,160,0.15);padding:60px 0;}
+.family-block-inner{max-width:700px;}
+.family-block-inner h2{margin-bottom:20px;}
+.family-quote{border-left:4px solid #f0a500;padding-left:24px;margin:0;}
+.family-quote p{font-size:16px;color:var(--text-mid);font-weight:300;line-height:1.85;}
+.step-subline{font-size:12px;color:var(--teal);font-weight:400;margin-top:6px;font-style:italic;}
+@media(max-width:768px){.stats-strip-inner{grid-template-columns:repeat(2,1fr);}.stats-strip-item+.stats-strip-item::before{display:none;}}
 .why-card{padding:26px 22px;border-radius:var(--radius);border:1px solid rgba(255,255,255,0.08);background:rgba(255,255,255,0.04);}
 .why-num{font-family:var(--font-display);font-size:32px;font-weight:600;color:rgba(255,255,255,0.25);line-height:1;margin-bottom:14px;letter-spacing:-0.02em;}
 .why-card h4{color:#fff;margin-bottom:8px;}
@@ -754,8 +793,20 @@ a{color:inherit;}
     </div>
   </div>
 
+  <!-- Trust Numbers Strip -->
+  <div class="stats-strip" aria-label="Trust statistics — Global Health Bridge">
+    <div class="wrap">
+      <div class="stats-strip-inner">
+        <div class="stats-strip-item"><div class="stats-strip-num">250+</div><div class="stats-strip-label">Care Professionals</div></div>
+        <div class="stats-strip-item"><div class="stats-strip-num">6</div><div class="stats-strip-label">Specialties Covered</div></div>
+        <div class="stats-strip-item"><div class="stats-strip-num">5</div><div class="stats-strip-label">Partner Hospitals</div></div>
+        <div class="stats-strip-item"><div class="stats-strip-num">0</div><div class="stats-strip-label">Waiting Lists</div></div>
+      </div>
+    </div>
+  </div>
+
   <!-- What We Do -->
-  <section style="background:#fff;">
+  <section style="background:#fff;" aria-label="Patient and family lifestyle support services">
     <div class="wrap">
       <div class="section-label">Our Services</div>
       <h2>Everything You Need,<br><em>In One Place</em></h2>
@@ -780,19 +831,29 @@ a{color:inherit;}
       </div>
       <div class="grid-3 mt-56">
         <div class="card">
-          <div class="card-icon teal"><svg viewBox="0 0 24 24" fill="none"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" stroke="#0d6b55" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="card-icon teal"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" stroke="#0d6b55" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
           <h3 class="mb-8">Medical Facilitation</h3>
           <p style="font-size:14px;color:var(--text-mid);font-weight:300;line-height:1.75;">Case reviews, second opinions, hospital matching, and transparent treatment plans — all handled by our expert team.</p>
         </div>
         <div class="card">
-          <div class="card-icon teal"><svg viewBox="0 0 24 24" fill="none"><path d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" stroke="#0d6b55" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-          <h3 class="mb-8">Patient Journey Support</h3>
-          <p style="font-size:14px;color:var(--text-mid);font-weight:300;line-height:1.75;">Visa guidance, airport reception, accommodation coordination, and on-ground case management throughout your stay.</p>
+          <div class="card-icon teal"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 2h6l2 2h4a1 1 0 011 1v14a1 1 0 01-1 1H3a1 1 0 01-1-1V5a1 1 0 011-1h4l2-2zM12 7v6m-3-3h6" stroke="#0d6b55" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <h3 class="mb-8">Visa &amp; Travel</h3>
+          <p style="font-size:14px;color:var(--text-mid);font-weight:300;line-height:1.75;">Full medical visa guidance, documentation support, and pre-travel coordination — so every requirement is in order before you leave home.</p>
         </div>
         <div class="card">
-          <div class="card-icon teal"><svg viewBox="0 0 24 24" fill="none"><path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" stroke="#0d6b55" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-          <h3 class="mb-8">Continuity of Care</h3>
-          <p style="font-size:14px;color:var(--text-mid);font-weight:300;line-height:1.75;">Post-discharge planning, tele-consultations, local doctor coordination, and rehabilitation support after you return home.</p>
+          <div class="card-icon teal"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" stroke="#0d6b55" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <h3 class="mb-8">Accommodation &amp; Meals</h3>
+          <p style="font-size:14px;color:var(--text-mid);font-weight:300;line-height:1.75;">Comfortable accommodation close to the hospital for patients and families, with meal coordination and dietary preferences — including Halal, vegetarian, and other requirements — arranged in advance.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon teal"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" stroke="#0d6b55" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <h3 class="mb-8">Language &amp; Translation Support</h3>
+          <p style="font-size:14px;color:var(--text-mid);font-weight:300;line-height:1.75;">Our interpreters assist patients and families throughout their stay — at the hospital, during consultations, and wherever needed — so nothing gets lost in translation.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon teal"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" stroke="#0d6b55" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <h3 class="mb-8">Local Transport, Arranged</h3>
+          <p style="font-size:14px;color:var(--text-mid);font-weight:300;line-height:1.75;">From airport pickup to daily hospital runs and city travel, we coordinate all ground transport so patients and families can focus entirely on recovery.</p>
         </div>
         <div class="card" id="care-professionals">
           <div class="card-icon teal" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" stroke="#0d6b55" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="sr-only">Dedicated nursing care team for international patients in India</span></div>
@@ -857,6 +918,19 @@ a{color:inherit;}
     </div>
   </section>
 
+  <!-- Your Family Matters Too -->
+  <section class="family-block">
+    <div class="wrap">
+      <div class="family-block-inner">
+        <div class="section-label">Family-Centred Care</div>
+        <h2>Your Family<br><em>Matters Too</em></h2>
+        <blockquote class="family-quote" style="margin-top:20px;">
+          <p>We know it is not just the patient making this journey. We arrange accommodation, meals, and local transport for attendants and family members too — so your loved ones can focus entirely on being there for you.</p>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
   <!-- Why Choose Us dark -->
   <section class="section-dark">
     <div class="wrap">
@@ -883,8 +957,7 @@ a{color:inherit;}
         <div class="why-card"><div class="why-num">03</div><h4>Dedicated Care Coordinator</h4><p>A single point of contact stays with you from first inquiry through post-treatment recovery.</p></div>
         <div class="why-card"><div class="why-num">04</div><h4>Up to 90% Cost Savings</h4><p>World-class treatment at a fraction of Western costs, without ever compromising on clinical outcomes.</p></div>
         <div class="why-card"><div class="why-num">05</div><h4>Visa & Travel Expertise</h4><p>Deep experience navigating medical visa processes for patients from Central Asia and Africa.</p></div>
-        <div class="why-card"><div class="why-num">06</div><h4>Beyond the Hospital</h4><p>Post-return tele-consults, local doctor coordination and rehabilitation planning — care after discharge.</p></div>
-        <div class="why-card" aria-label="250+ dedicated care professionals for international patients in India"><div class="why-num">07</div><h4>250+ Dedicated Care Professionals</h4><p>From ICU nurses and physiotherapists to trained patient attendants — our on-ground care team supports you throughout your stay in India and can travel home with you for continued recovery. Personalised post-operative care, wherever you are.<span class="sr-only"> Dedicated nursing and physiotherapy professionals available for international medical patients in India and at home.</span></p></div>
+        <div class="why-card" aria-label="250+ dedicated care professionals and post-treatment continuity for international patients"><div class="why-num">06</div><h4>250+ Care Professionals &amp; Continuity</h4><p>Our on-ground team of ICU nurses, physiotherapists, and patient attendants supports you in India and can travel home with you. Post-return tele-consults, rehabilitation planning, and local doctor coordination ensure your recovery never stops.<span class="sr-only"> Dedicated nursing, physiotherapy, and continuity of care professionals available for international medical patients in India and at home.</span></p></div>
       </div>
     </div>
   </section>
@@ -1177,23 +1250,23 @@ a{color:inherit;}
           <div class="steps-col mt-40">
             <div class="step-item">
               <div class="step-circle"><svg viewBox="0 0 24 24" fill="none"><path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" stroke="#1a5fa8" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-              <div><div class="step-tag">Step 01</div><h4>Get in Touch</h4><p>Reach out via our contact form, WhatsApp, or email. Share a brief overview of your condition and what treatment you are seeking.</p></div>
+              <div><div class="step-tag">Step 01</div><h4>Get in Touch</h4><p>Reach out via our contact form, WhatsApp, or email. Share a brief overview of your condition and what treatment you are seeking.</p><p class="step-subline">Our team responds within 24 hours.</p></div>
             </div>
             <div class="step-item">
               <div class="step-circle"><svg viewBox="0 0 24 24" fill="none"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" stroke="#1a5fa8" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-              <div><div class="step-tag">Step 02</div><h4>Submit Medical Reports</h4><p>Securely share your medical reports, investigation results, and case history. Our team reviews everything within 48 hours — at no cost to you.</p></div>
+              <div><div class="step-tag">Step 02</div><h4>Submit Medical Reports</h4><p>Securely share your medical reports, investigation results, and case history. Our team reviews everything within 48 hours — at no cost to you.</p><p class="step-subline">Securely share your records — we handle everything from there.</p></div>
             </div>
             <div class="step-item">
               <div class="step-circle"><svg viewBox="0 0 24 24" fill="none"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" stroke="#1a5fa8" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-              <div><div class="step-tag">Step 03</div><h4>Expert Evaluation & Hospital Match</h4><p>We match you with the most appropriate specialist and hospital based on your specific condition, budget, and preferences. You receive a transparent treatment plan with full cost estimates.</p></div>
+              <div><div class="step-tag">Step 03</div><h4>Expert Evaluation & Hospital Match</h4><p>We match you with the most appropriate specialist and hospital based on your specific condition, budget, and preferences. You receive a transparent treatment plan with full cost estimates.</p><p class="step-subline">We explain everything in plain language, so your family understands the path ahead.</p></div>
             </div>
             <div class="step-item">
               <div class="step-circle"><svg viewBox="0 0 24 24" fill="none"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" stroke="#1a5fa8" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-              <div><div class="step-tag">Step 04</div><h4>Visa & Pre-Travel Support</h4><p>Our team guides you through the medical visa application process, helps you prepare all documentation, and coordinates with the hospital for invitation letters and other requirements.</p></div>
+              <div><div class="step-tag">Step 04</div><h4>Visa & Pre-Travel Support</h4><p>Our team guides you through the medical visa application process, helps you prepare all documentation, and coordinates with the hospital for invitation letters and other requirements.</p><p class="step-subline">Full transparency — no hidden charges, no surprises.</p></div>
             </div>
             <div class="step-item">
               <div class="step-circle"><svg viewBox="0 0 24 24" fill="none"><path d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" stroke="#1a5fa8" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-              <div><div class="step-tag">Step 05</div><h4>Arrival & Ground Support</h4><p>We arrange airport reception and ground transportation to your hospital or accommodation. A dedicated care professional from our team of 250+ trained specialists — including ICU nurses, physiotherapists, and patient attendants — is assigned to support you and your family from arrival through recovery, and can continue care at home after you return.</p></div>
+              <div><div class="step-tag">Step 05</div><h4>Arrival & Ground Support</h4><p>We arrange airport reception and ground transportation to your hospital or accommodation. A dedicated care professional from our team of 250+ trained specialists — including ICU nurses, physiotherapists, and patient attendants — is assigned to support you and your family from arrival through recovery, and can continue care at home after you return.</p><p class="step-subline">From the moment you land, someone from our team is with you — at the hospital, at your accommodation, whenever you need us.</p></div>
             </div>
             <div class="step-item">
               <div class="step-circle"><svg viewBox="0 0 24 24" fill="none"><path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" stroke="#1a5fa8" stroke-width="1.5" stroke-linecap="round"/></svg></div>
@@ -1201,7 +1274,7 @@ a{color:inherit;}
             </div>
             <div class="step-item">
               <div class="step-circle"><svg viewBox="0 0 24 24" fill="none"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" stroke="#1a5fa8" stroke-width="1.5"/></svg></div>
-              <div><div class="step-tag">Step 07</div><h4>Return Travel & Continuity of Care</h4><p>We assist with discharge planning and return travel. Post-return, we coordinate tele-consultations with your treating specialist and liaise with your local doctors to ensure seamless continuity of care.</p></div>
+              <div><div class="step-tag">Step 07</div><h4>Return Travel & Continuity of Care</h4><p>We assist with discharge planning and return travel. Post-return, we coordinate tele-consultations with your treating specialist and liaise with your local doctors to ensure seamless continuity of care.</p><p class="step-subline">We stay with you beyond discharge — including care at home if needed.</p></div>
             </div>
           </div>
         </div>
@@ -1362,8 +1435,15 @@ a{color:inherit;}
         <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Can a family member accompany me?<svg viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button><div class="faq-a">Yes. Up to two attendants can accompany a patient on a Medical Attendant Visa (MED-X). We coordinate accommodation for patients and their attendants and ensure both are well-supported throughout the stay.</div></div>
         <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">What happens when I arrive in India?<svg viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button><div class="faq-a">We arrange airport reception and ground transportation directly from the airport to your hospital or accommodation. A dedicated care coordinator greets you and remains your point of contact for the duration of your stay in India. We handle all logistics so you can focus entirely on your treatment and recovery.</div></div>
 
+        <div class="section-label mb-8 mt-40">On-Ground Support &amp; Comfort</div>
+        <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Will someone speak my language when I arrive?<svg viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button><div class="faq-a">Yes. We provide interpreter support throughout your stay — at the airport, during hospital consultations, and at your accommodation. We currently support patients in Arabic, French, Swahili, Russian, and English.</div></div>
+        <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Where will my family stay while I am in hospital?<svg viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button><div class="faq-a">We coordinate comfortable accommodation close to the hospital for patients and their attendants. Options range from guest houses to serviced apartments depending on your budget and preference.</div></div>
+        <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Can I get food suited to my dietary preferences in India?<svg viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button><div class="faq-a">Absolutely. We work with accommodation providers and local services that can cater to a range of dietary needs — including Halal, vegetarian, and other specific requirements.</div></div>
+        <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">How do I get from the airport to the hospital?<svg viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button><div class="faq-a">We arrange a dedicated pickup from the airport on your arrival day. All ground transport — to and from the hospital, accommodation, and within the city — is coordinated by our team.</div></div>
+
         <div class="section-label mb-8 mt-40">After Treatment</div>
         <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">What support do you provide after I return home?<svg viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button><div class="faq-a">Our support does not end at discharge. Under our Comprehensive Care package, we coordinate post-return tele-consultations with your treating specialist, liaise with your local doctors to share discharge summaries and treatment records, and assist with rehabilitation planning. We believe continuity of care is as important as the treatment itself.</div></div>
+        <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Can a care professional travel back home with me after treatment?<svg viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button><div class="faq-a">Yes, this is one of our most valued services. Our trained care professionals — including nurses and physiotherapists — can accompany patients back to their home country and continue care at home during recovery.</div></div>
         <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">How do I get started?<svg viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button><div class="faq-a">Getting started is simple and free. You can fill out our contact form on the website, send us a WhatsApp message, or email us directly. Share a brief description of your condition and any relevant medical reports. Our team will review your case and get back to you within 24–48 hours with initial guidance — at no cost.</div></div>
       </div>
       <div style="background:var(--blue-pale);border-radius:var(--radius-lg);border:1px solid var(--border);padding:32px;margin-top:48px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;">
