@@ -1,0 +1,51 @@
+{
+  "project": "Global Health Bridge — Website Improvement Plan",
+  "created": "2026-05-04",
+  "last_updated": "2026-05-04",
+  "total_items": 22,
+  "completed": 5,
+  "pending": 17,
+  "pages": {
+    "homepage": {
+      "items": [
+        { "id": "HP-01", "status": "done", "priority": "high", "section": "Hero Section", "issue": "Subtext is generic — doesn't speak to scared visitor.", "action": "Replace subtext. New primary line: 'You are dealing with something serious. We make sure you are never doing it alone — from your first question to full recovery.' Move old operational line to smaller secondary position below." },
+        { "id": "HP-02", "status": "done", "priority": "medium", "section": "Hero Stats Strip", "issue": "'0 Waiting time' is ambiguous.", "action": "Change label to 'No Waiting Lists'." },
+        { "id": "HP-03", "status": "done", "priority": "medium", "section": "Trust Strip", "issue": "Trust strip and stats strip are redundant — say the same things.", "action": "Replace trust strip items with: 'No Referral Fees', 'No Obligation Case Review', 'Available in 5 Languages'. Do not duplicate stats strip content." },
+        { "id": "HP-04", "status": "done", "priority": "medium", "section": "Services Section Intro", "issue": "Subtext 'From first consultation to post-treatment care...' is filler.", "action": "Replace with: 'From visa paperwork to ICU nursing, airport pickups to post-discharge physiotherapy — we handle every detail so you can focus on getting better.'" },
+        { "id": "HP-05", "status": "done", "priority": "high", "section": "Specialties Section", "issue": "Specialty cards have no trust line — just name and arrow.", "action": "Add one trust line per specialty: Cardiology — 'Operated at Fortis Escorts, one of Asia's most respected cardiac institutes.' Oncology — 'Access to advanced oncology protocols at BLK-Max and Max Hospitals.' Orthopaedics — 'Same world-class implants, expert tenured surgeons, fraction of the cost.' IVF — 'Leading IVF success rates at accredited fertility centres in Delhi.' Organ Transplant — 'Coordinated with India's top transplant units for kidney, liver and bone marrow.' Urology — 'Minimally invasive procedures with near-zero waiting time.'" },
+        { "id": "HP-06", "status": "pending", "priority": "low", "section": "Your Family Matters Too Block", "issue": "Block placement interrupts flow between Specialties and Why Choose Us.", "action": "Move the 'Your Family Matters Too' block to immediately after the Services section — before Specialties." },
+        { "id": "HP-07", "status": "pending", "priority": "high", "section": "Pricing Packages", "issue": "No prices shown and no explanation — visitors may bounce.", "action": "Add note below packages: 'Pricing depends on your treatment plan and country of origin — your coordinator will share a full cost breakdown before you commit to anything.'" },
+        { "id": "HP-08", "status": "pending", "priority": "high", "section": "Pricing Packages", "issue": "On-Ground & Home Care service not mentioned in any package.", "action": "Add to Comprehensive Care package description. Add note below all packages: 'Our dedicated care professionals — including ICU nurses and physiotherapists — are available as part of the Comprehensive Care package or as a standalone add-on.'" },
+        { "id": "HP-09", "status": "pending", "priority": "medium", "section": "Testimonials", "issue": "All testimonials same emotional arc, no specific recovery outcome.", "action": "Add one outcome line per testimonial: e.g. 'I was walking without support six weeks after surgery.' / 'My latest scan came back clear.' / 'I returned home stronger than I had felt in years.'" }
+      ]
+    },
+    "patient_journey": {
+      "items": [
+        { "id": "PJ-01", "status": "pending", "priority": "high", "section": "Page Intro", "issue": "Subtext is process-focused, not patient-focused.", "action": "Replace with: 'Whatever your condition, whatever your situation — you will not navigate this alone. Here is exactly how we support you, step by step.'" },
+        { "id": "PJ-02", "status": "pending", "priority": "high", "section": "Step 06 — Treatment & Recovery", "issue": "Most important step has least copy and no subline.", "action": "Add subline: 'Our coordinator stays close — every day, for every question.' Expand body to cover: daily coordinator availability, language support inside hospital, what happens if condition changes, who to call." },
+        { "id": "PJ-03", "status": "pending", "priority": "medium", "section": "Sidebar — Typical Timeline", "issue": "Timeline ends at hospital stay, no total trip duration shown.", "action": "Add: 'Total typical stay in India: 3–6 weeks' and 'Post-return follow-up: Ongoing'." },
+        { "id": "PJ-04", "status": "pending", "priority": "low", "section": "Sidebar — Languages", "issue": "No clarification that hospital staff speak English — visitors may worry.", "action": "Add note: 'Hospital staff at our partner institutions communicate in English. GHB interpreters provide additional language support throughout your stay.'" }
+      ]
+    },
+    "faqs": {
+      "items": [
+        { "id": "FAQ-01", "status": "pending", "priority": "high", "section": "FAQs", "issue": "No question about full cost transparency.", "action": "Add Q: 'Will I know the full cost before I travel?' A: 'Yes. Before you travel, your coordinator shares a detailed cost breakdown covering treatment, accommodation, transport, and any care support — so there are no surprises. You commit only once you are fully satisfied with the plan and the costs.'" },
+        { "id": "FAQ-02", "status": "pending", "priority": "medium", "section": "FAQs", "issue": "Arrival answer buries the most reassuring detail — dedicated coordinator.", "action": "Rewrite to lead with: 'Your dedicated care coordinator meets you at the airport.' Then add logistics details." },
+        { "id": "FAQ-03", "status": "pending", "priority": "medium", "section": "FAQs", "issue": "Family accommodation answer is vague — no mention of proximity, safety, or who books it.", "action": "Add: 'We personally vet and book all accommodation within close proximity to your hospital. You will not need to research or arrange anything yourself.'" },
+        { "id": "FAQ-04", "status": "pending", "priority": "high", "section": "FAQs", "issue": "No question about complications or emergencies during treatment.", "action": "Add Q: 'What if there are complications during my treatment?' A: 'Our coordinator remains accessible throughout your hospital stay. In the event of any clinical change, our team works directly with the hospital's medical team and keeps your family informed at every step. We do not leave you to navigate this alone — that is the core of what we do.'" }
+      ]
+    },
+    "about": {
+      "items": [
+        { "id": "AB-01", "status": "pending", "priority": "medium", "section": "Opening Section", "issue": "Page opens with disease burden stats — heavy for someone in a medical situation.", "action": "Lead with GHB founding purpose: 'Global Health Bridge was founded on a simple belief — that distance should never stand between a patient and the care they need.' Move regional context below as supporting paragraph." },
+        { "id": "AB-02", "status": "pending", "priority": "medium", "section": "Who We Serve", "issue": "B2B/B2G audiences listed alongside individual patients — feels institutional.", "action": "Reorder so individual patients come first with the most space. Move Governments/NGOs/Referring Doctors to a separate lower subsection." }
+      ]
+    },
+    "cross_cutting": {
+      "items": [
+        { "id": "CC-01", "status": "pending", "priority": "medium", "section": "Footer / All Pages", "issue": "Phone number only accessible via floating button — older patients may miss it.", "action": "Add 'Call or WhatsApp: +91 98716 15884' as plain visible text in the footer on all pages and in the homepage final CTA section." },
+        { "id": "CC-02", "status": "pending", "priority": "high", "section": "All CTAs — All Pages", "issue": "'Free Consultation' CTA never explains what it involves.", "action": "Add descriptor near every CTA instance on all pages: 'A 20-minute call with a patient coordinator — no obligation, no cost.'" }
+      ]
+    }
+  }
+}
