@@ -1,7 +1,7 @@
 {
   "project": "Global Health Bridge — Website Improvement Plan",
   "created": "2026-05-04",
-  "last_updated": "2026-05-04",
+  "last_updated": "2026-05-05",
   "total_items": 22,
   "completed": 9,
   "pending": 13,
@@ -13,10 +13,10 @@
         { "id": "HP-03", "status": "done", "priority": "medium", "section": "Trust Strip", "issue": "Trust strip and stats strip are redundant — say the same things.", "action": "Replace trust strip items with: 'No Referral Fees', 'No Obligation Case Review', 'Available in 5 Languages'. Do not duplicate stats strip content." },
         { "id": "HP-04", "status": "done", "priority": "medium", "section": "Services Section Intro", "issue": "Subtext 'From first consultation to post-treatment care...' is filler.", "action": "Replace with: 'From visa paperwork to ICU nursing, airport pickups to post-discharge physiotherapy — we handle every detail so you can focus on getting better.'" },
         { "id": "HP-05", "status": "done", "priority": "high", "section": "Specialties Section", "issue": "Specialty cards have no trust line — just name and arrow.", "action": "Add one trust line per specialty: Cardiology — 'Operated at Fortis Escorts, one of Asia's most respected cardiac institutes.' Oncology — 'Access to advanced oncology protocols at BLK-Max and Max Hospitals.' Orthopaedics — 'Same world-class implants, expert tenured surgeons, fraction of the cost.' IVF — 'Leading IVF success rates at accredited fertility centres in Delhi.' Organ Transplant — 'Coordinated with India's top transplant units for kidney, liver and bone marrow.' Urology — 'Minimally invasive procedures with near-zero waiting time.'" },
-        { "id": "HP-06", "status": "pending", "priority": "low", "section": "Your Family Matters Too Block", "issue": "Block placement interrupts flow between Specialties and Why Choose Us.", "action": "Move the 'Your Family Matters Too' block to immediately after the Services section — before Specialties." },
-        { "id": "HP-07", "status": "pending", "priority": "high", "section": "Pricing Packages", "issue": "No prices shown and no explanation — visitors may bounce.", "action": "Add note below packages: 'Pricing depends on your treatment plan and country of origin — your coordinator will share a full cost breakdown before you commit to anything.'" },
-        { "id": "HP-08", "status": "pending", "priority": "high", "section": "Pricing Packages", "issue": "On-Ground & Home Care service not mentioned in any package.", "action": "Add to Comprehensive Care package description. Add note below all packages: 'Our dedicated care professionals — including ICU nurses and physiotherapists — are available as part of the Comprehensive Care package or as a standalone add-on.'" },
-        { "id": "HP-09", "status": "pending", "priority": "medium", "section": "Testimonials", "issue": "All testimonials same emotional arc, no specific recovery outcome.", "action": "Add one outcome line per testimonial: e.g. 'I was walking without support six weeks after surgery.' / 'My latest scan came back clear.' / 'I returned home stronger than I had felt in years.'" }
+        { "id": "HP-06", "status": "done", "priority": "low", "section": "Your Family Matters Too Block", "issue": "Block placement interrupts flow between Specialties and Why Choose Us.", "action": "Move the 'Your Family Matters Too' block to immediately after the Services section — before Specialties." },
+        { "id": "HP-07", "status": "done", "priority": "high", "section": "Pricing Packages", "issue": "No prices shown and no explanation — visitors may bounce.", "action": "Add note below packages: 'Pricing depends on your treatment plan and country of origin — your coordinator will share a full cost breakdown before you commit to anything.'" },
+        { "id": "HP-08", "status": "done", "priority": "high", "section": "Pricing Packages", "issue": "On-Ground & Home Care service not mentioned in any package.", "action": "Add to Comprehensive Care package description. Add note below all packages: 'Our dedicated care professionals — including ICU nurses and physiotherapists — are available as part of the Comprehensive Care package or as a standalone add-on.'" },
+        { "id": "HP-09", "status": "done", "priority": "medium", "section": "Testimonials", "issue": "All testimonials same emotional arc, no specific recovery outcome.", "action": "Add one outcome line per testimonial: e.g. 'I was walking without support six weeks after surgery.' / 'My latest scan came back clear.' / 'I returned home stronger than I had felt in years.'" }
       ]
     },
     "patient_journey": {
